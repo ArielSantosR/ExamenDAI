@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" /> 
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LogIn</title>
+</head>
+<body>
+        <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Examen DAI</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Inicio</a></li>
+                    <li><a href="login.html">Ingresar</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                  </ul>
+                </div>
+              </nav>
+        <div class="row">
+                <div class="col-xs-6">
+                    <div class="well" style="margin-left: 15px">
+                        <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                            <div class="form-group">
+                                <label for="username" class="control-label">Rut</label>
+                                <input type="text" class="form-control" id="txtRut" name="txtRut" value="" required="true" title="Por favor ingresa tu rut" placeholder="194756828">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label">Contraseña</label>
+                                <input type="password" class="form-control" id="txtContraseña" name="txtContraseña" value="" required="" title="Por favor ingresa tu contraseña">
+                                <span class="help-block"></span>
+                            </div>
+                            <div id="loginErrorMsg" class="alert alert-error hide">Datos Incorrectos!</div>
+                            
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                        <div class="row">
+                    <div class="col-xs-4">
+                        <img src="images/login.jpg" width="550px" height="450px">
+                    </div>   
+                        </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
