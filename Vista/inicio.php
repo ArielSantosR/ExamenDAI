@@ -1,5 +1,10 @@
 <?php include 'headerInicio.php';?>
 <?php session_start();?>
+<?php
+	if (empty($_SESSION['email'])) {
+		header("Location: ../Vista/login.php");
+	}
+?>
 
 
 <div class="jumbotron text-center">
