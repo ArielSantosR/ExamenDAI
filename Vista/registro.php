@@ -3,7 +3,7 @@
 <?php include 'header.php';?>
 
 	<?php session_start();?>
-	<?php if(!empty($message)): ?>
+	<?php if(!empty($msj)): ?>
 		<p><?= $msj ?></p>
 	<?php endif; ?>
 
