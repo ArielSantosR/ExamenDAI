@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2018 a las 23:44:08
+-- Tiempo de generación: 13-07-2018 a las 00:44:52
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -21,6 +21,51 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `examen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contacto`
+--
+
+CREATE TABLE `contacto` (
+  `rutContacto` varchar(10) NOT NULL,
+  `nombreContacto` varchar(100) NOT NULL,
+  `emailContacto` varchar(100) NOT NULL,
+  `telefonoContacto` int(10) NOT NULL,
+  `idEmpresaC` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `idEmpresa` int(100) NOT NULL,
+  `rutEmpresa` varchar(10) NOT NULL,
+  `nombreEmpresa` varchar(200) NOT NULL,
+  `direccionEmpresa` varchar(200) NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `particular`
+--
+
+CREATE TABLE `particular` (
+  `idParticular` int(11) NOT NULL,
+  `rutParticular` int(10) NOT NULL,
+  `passParticular` int(100) NOT NULL,
+  `nombreParticular` int(100) NOT NULL,
+  `direccionParticular` int(200) NOT NULL,
+  `emailParticular` int(100) NOT NULL,
+  `telefonoParticular` int(10) NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,6 +92,18 @@ INSERT INTO `usuario` (`id`, `email`, `contrasena`, `tipo`) VALUES
 --
 
 --
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`idEmpresa`);
+
+--
+-- Indices de la tabla `particular`
+--
+ALTER TABLE `particular`
+  ADD PRIMARY KEY (`idParticular`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -55,6 +112,18 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `idEmpresa` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `particular`
+--
+ALTER TABLE `particular`
+  MODIFY `idParticular` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
