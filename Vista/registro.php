@@ -27,17 +27,20 @@
 	  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 	  	
 	  		
-		<form class="form-horizontal" action="">
+		<form class="form-horizontal" action="../Controller/ControllerRegistroParticular.php" method="POST">
         <fieldset>
         
 	        <!-- Form Name -->
 	        <center><h3><strong>Registro Particular</strong></h3></center>
 	        
 	        <!-- Text input-->
+	        <div style="border-bottom: 1px #4caf50 solid;width: 30%;margin-left: auto;margin-right: auto;">
+		        <center><h4>Datos Personales</h4></center>
+		    </div>
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-4">
-	          <input id="txtrut" name="Rut" type="text" placeholder="194756828" class="form-control input-md" required="true">
+	          <input id="txtrut" name="rutParticular" type="text" placeholder="194756828" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -46,48 +49,62 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-4">
-	          <input id="txtnombre" name="nombre" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
+	          <input id="txtnombre" name="nombreParticular" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
-	        
-	        <!-- Text input-->
-	        <div class="form-group">
-	          <label class="col-md-4 control-label" for="cmpny">Contraseña</label>  
-	          <div class="col-md-4">
-	          <input id="txtcontrasena" name="contrasena" type="password" placeholder="Contraseña" class="form-control input-md" required="">
-	            
-	          </div>
-	        </div>
+	       
 
 	        <!-- Text input-->
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="email">Dirección</label>  
 	          <div class="col-md-4">
-	          <input id="txtemail" name="direccion" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">
+	          <input id="txtemail" name="direccionParticular" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
 	        
-	        <!-- Text input-->
-	        <div class="form-group">
-	          <label class="col-md-4 control-label" for="email">Email</label>  
-	          <div class="col-md-4">
-	          <input id="txtemail" name="txtemail" type="text" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
-	            
-	          </div>
-	        </div>
 	        
 	        <!-- Text input-->
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="add1">Telefono</label>  
 	          <div class="col-md-4">
-	          <input id="txtnumber" name="txtnumber" type="number" placeholder="978097364" class="form-control input-md" required="">
+	          <input id="txtnumber" name="telefonoParticular" type="number" placeholder="978097364" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
+
+
+	        <div style="border-bottom: 1px #006cb8 solid;width: 30%;margin-left: auto;margin-right: auto;">
+	        	<center><h4>Datos de Ingreso</h4></center>
+	        </div>
+	         <!-- Text input-->
 	        
-	        
+	        	<div class="form-group">
+		          <label class="col-md-4 control-label" for="email">Email</label>  
+		          <div class="col-md-4">
+		          <input id="txtemail" name="emailParticular" type="text" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
+		            
+		          </div>
+		        </div>
+
+		         <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 control-label" for="cmpny">Contraseña</label>  
+		          <div class="col-md-4">
+		          <input id="txtcontrasena" name="passParticular" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+		            
+		          </div>
+		        </div>
+
+		         <!-- Text input-->
+		        <div class="form-group">
+		          <label class="col-md-4 control-label" for="cmpny">Repetir Contraseña</label>  
+		          <div class="col-md-4">
+		          <input id="txtcontrasena" name="repetPassParticular" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+		            
+		          </div>
+		        </div>
 	        
 	        
 	        <!-- Button -->
@@ -104,18 +121,20 @@
 	  </div>
 	  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 	  	
-	  	<form class="form-horizontal" action="">
+	  	<form class="form-horizontal" action="../Controller/ControllerRegistroEmpresa.php" method="POST">
         <fieldset>
         
 	        <!-- Form Name -->
 	        <center><h3><strong>Registro Empresa</strong></h3></center>
 	        
 	        <!-- Text input-->
-	        <center><h4>Datos Empresa</h4></center>
+	        <div style="border-bottom: 1px #4caf50 solid;width: 30%;margin-left: auto;margin-right: auto;">
+	        	<center><h4>Datos Empresa</h4></center>
+	        </div>
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-4">
-	          <input id="txtrut" name="Rut" type="text" placeholder="194756828" class="form-control input-md" required="true">
+	          <input id="txtrut" name="rutEmpresa" type="text" placeholder="194756828" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -124,7 +143,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-4">
-	          <input id="txtnombre" name="nombre" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
+	          <input id="txtnombre" name="nombreEmpresa" type="text" placeholder="Fabrica Muestras A.S" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -134,27 +153,21 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="email">Dirección</label>  
 	          <div class="col-md-4">
-	          <input id="txtemail" name="direccion" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">
+	          <input id="txtemail" name="direccionEmpresa" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
 	        
-	         <!-- Text input-->
-	        <div class="form-group">
-	          <label class="col-md-4 control-label" for="cmpny">Contraseña</label>  
-	          <div class="col-md-4">
-	          <input id="txtcontrasena" name="contrasena" type="password" placeholder="Contraseña" class="form-control input-md" required="">
-	            
-	          </div>
+	         
+	        <div style="border-bottom: 1px #4caf50 solid;width: 30%;margin-left: auto;margin-right: auto;">
+	        	<center><h4>Persona de contacto</h4></center>
 	        </div>
-	        
-	        <center><h4>Persona de contacto</h4></center>
 
 	        <!-- Text input-->
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-4">
-	          <input id="txtrut" name="Rut" type="text" placeholder="194756828" class="form-control input-md" required="true">
+	          <input id="txtrut" name="rutContacto" type="text" placeholder="194756828" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -163,16 +176,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-4">
-	          <input id="txtnombre" name="nombre" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
-	            
-	          </div>
-	        </div>
-
-	        <!-- Text input-->
-	        <div class="form-group">
-	          <label class="col-md-4 control-label" for="email">Email</label>  
-	          <div class="col-md-4">
-	          <input id="txtemail" name="txtemail" type="text" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
+	          <input id="txtnombre" name="nombreContacto" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -181,11 +185,40 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="add1">Telefono</label>  
 	          <div class="col-md-4">
-	          <input id="txtnumber" name="txtnumber" type="number" placeholder="978097364" class="form-control input-md" required="">
+	          <input id="txtnumber" name="telefonoContacto" type="number" placeholder="978097364" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
-	        
+
+	        <div style="border-bottom: 1px #006cb8 solid;width: 30%;margin-left: auto;margin-right: auto;">
+	        	<center><h4>Datos de Ingreso</h4></center>
+	        </div>
+	          <!-- Text input-->
+	        <div class="form-group">
+	          <label class="col-md-4 control-label" for="email">Email</label>  
+	          <div class="col-md-4">
+	          <input id="txtemail" name="emailContacto" type="text" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
+	            
+	          </div>
+	        </div>
+
+	        <!-- Text input-->
+	        <div class="form-group">
+	          <label class="col-md-4 control-label" for="cmpny">Contraseña</label>  
+	          <div class="col-md-4">
+	          <input id="txtcontrasena" name="contrasenaEmpresa" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+	            
+	          </div>
+	        </div>
+
+	        <!-- Text input-->
+	        <div class="form-group">
+	          <label class="col-md-4 control-label" for="cmpny">Repetir Contraseña</label>  
+	          <div class="col-md-4">
+	          <input id="txtcontrasena" name="RcontrasenaEmpresa" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+	            
+	          </div>
+	        </div>
 	        
 	        <!-- Button -->
 	        <div class="form-group">

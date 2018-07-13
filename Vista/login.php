@@ -18,11 +18,11 @@
 				<div class="cubo">
 					<div style="margin: 5%;">
 						<p class="labbel">Email</p>
-						<input class="form-control input-md inputt" type="text" name="email">
+						<input class="form-control input-md inputt" type="text" name="email" required="">
 					</div>
 					<div style="margin: 5%;">
 						<p class="labbel">Contraseña</p>
-						<input class="form-control input-md inputt" type="password"  name="contrasena">
+						<input class="form-control input-md inputt" type="password"  name="contrasena" required="">
 					</div>
 				</div>
 

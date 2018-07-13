@@ -14,7 +14,7 @@
 	<nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">Examen DAI</a>
+            <a class="navbar-brand" href="index.php"><strong>ISP</strong></a>
           </div>
           <ul class="nav navbar-nav">
             <li ><a href="index.php">Inicio</a></li>

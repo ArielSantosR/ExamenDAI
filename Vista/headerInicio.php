@@ -13,10 +13,14 @@
 	<nav class="navbar navbar-default">
                 <div class="container-fluid">
                   <div class="navbar-header">
-                    <a class="navbar-brand">Examen DAI</a>
+                  	<?php session_start();?>
+                    <a class="navbar-brand" style="width: 400px;">
+                    	<strong>ISP</strong> 
+                    	<p style="color: #007bff;display: initial;"><?php echo $_SESSION['email'] ?></p>
+                    </a>
                   </div>
                   <ul class="nav navbar-nav">
-                    <li><a >Inicio</a></li>
+                    <li><a href="inicio.php">Inicio</a></li>
                     <li><a href="cerrar.php">Cerrar Sesión</a></li>
                     <li><a href="#">Editar Mis Datos</a></li>
                     <li><a href="#">Mis Muestras</a></li>

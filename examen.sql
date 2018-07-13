@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2018 a las 02:14:50
--- Versión del servidor: 10.1.30-MariaDB
--- Versión de PHP: 7.2.1
+-- Tiempo de generación: 13-07-2018 a las 06:28:53
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,10 +31,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `contacto` (
   `rutContacto` varchar(10) NOT NULL,
   `nombreContacto` varchar(100) NOT NULL,
-  `emailContacto` varchar(100) NOT NULL,
   `telefonoContacto` int(10) NOT NULL,
   `idEmpresaC` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `contacto`
+--
+
+INSERT INTO `contacto` (`rutContacto`, `nombreContacto`, `telefonoContacto`, `idEmpresaC`) VALUES
+('1976776-1', 'Francisca Leon', 878787878, 3);
 
 -- --------------------------------------------------------
 
@@ -50,6 +56,13 @@ CREATE TABLE `empresa` (
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`idEmpresa`, `rutEmpresa`, `nombreEmpresa`, `direccionEmpresa`, `idUsuario`) VALUES
+(3, '19672371', 'Frabrica cp', 'Av Macul 233', 7);
+
 -- --------------------------------------------------------
 
 --
@@ -59,13 +72,18 @@ CREATE TABLE `empresa` (
 CREATE TABLE `particular` (
   `idParticular` int(11) NOT NULL,
   `rutParticular` int(10) NOT NULL,
-  `passParticular` int(100) NOT NULL,
-  `nombreParticular` int(100) NOT NULL,
-  `direccionParticular` int(200) NOT NULL,
-  `emailParticular` int(100) NOT NULL,
+  `nombreParticular` varchar(100) NOT NULL,
+  `direccionParticular` varchar(200) NOT NULL,
   `telefonoParticular` int(10) NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `particular`
+--
+
+INSERT INTO `particular` (`idParticular`, `rutParticular`, `nombreParticular`, `direccionParticular`, `telefonoParticular`, `idUsuario`) VALUES
+(3, 19672371, 'Maxi Salvo', 'Los platanos 231 macul', 71072097, 4);
 
 -- --------------------------------------------------------
 
@@ -85,7 +103,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `email`, `contrasena`, `tipo`) VALUES
-(1, 'Fran', '123', 'empresa');
+(3, 'fr.leonl1012@gmail.com', '123', 'particular'),
+(4, 'maxi@gmail.com', '123', 'particular'),
+(5, 'fr.leonl@gmail.com', '123', 'empresa'),
+(7, 'ariel@gmail.com', '123', 'empresa');
 
 --
 -- Índices para tablas volcadas
@@ -123,19 +144,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEmpresa` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `particular`
 --
 ALTER TABLE `particular`
-  MODIFY `idParticular` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idParticular` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
