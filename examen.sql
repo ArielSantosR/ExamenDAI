@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2018 a las 00:44:52
--- Versión del servidor: 10.1.33-MariaDB
--- Versión de PHP: 7.2.6
+-- Tiempo de generación: 13-07-2018 a las 02:14:50
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -92,6 +92,12 @@ INSERT INTO `usuario` (`id`, `email`, `contrasena`, `tipo`) VALUES
 --
 
 --
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD KEY `idEmpresaC` (`idEmpresaC`);
+
+--
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
@@ -130,6 +136,28 @@ ALTER TABLE `particular`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD CONSTRAINT `contacto_ibfk_1` FOREIGN KEY (`idEmpresaC`) REFERENCES `empresa` (`idEmpresa`);
+
+--
+-- Filtros para la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`idEmpresa`) REFERENCES `usuario` (`id`);
+
+--
+-- Filtros para la tabla `particular`
+--
+ALTER TABLE `particular`
+  ADD CONSTRAINT `particular_ibfk_1` FOREIGN KEY (`idParticular`) REFERENCES `usuario` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
