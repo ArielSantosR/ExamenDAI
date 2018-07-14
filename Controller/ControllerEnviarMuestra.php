@@ -7,16 +7,32 @@ global $gbd;
 
 if (!empty($_POST['muestra'])){
     $muestra= $_POST['muestra'];
-
-    $sql = "INSERT INTO analisisMuestras(tipo) VALUES (:muestra)";
-
-	$stmt = $gbd->prepare($sql);
-    $stmt->bindParam(':muestra', $muestra);
-    $stmt->execute();
-    $res = $stmt->execute();
+    $estado = "F";
+    if (isset($_POST['codigo_empresa'])){
+        $codigoEmpresa = $_POST['codigo_empresa'];
+        $codigoParticular = null;
+    }
     
-    if ($res > 0){
-        
+    if (isset($_POST['codigo_particular'])){
+        $codigoEmpresa = null;
+        $codigoParticular = $_POST['codigo_particular'];
     }
 
+    $sql = "INSERT INTO analisisMuestras(tipo, codigo_empresa, codigo_particular, estado) 
+    VALUES (:muestra, :codigo_empresa, :codigo_particular, :estado)";
+
+	$sentencia = $gbd->prepare($sql);
+    $sentencia->bindParam(':muestra', $muestra);
+    $sentencia->bindParam('codigo_empresa', $codigoEmpresa);
+    $sentencia->bindParam('codigo_particular', $codigoParticular);
+    $sentencia->bindParam('estado', $estado);
+    $sentencia->execute();
+    
+    if($sentencia->rowcount() > 0) {
+        header('Location: ../Vista/formularioCliente.php?msj=exito');
+		exit();
+    } else {
+        header('Location: ../Vista/formularioCliente.php?msj=error');
+		exit();
+    }
 }

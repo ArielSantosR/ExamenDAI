@@ -17,6 +17,7 @@
 						echo $_SESSION['direccionParticular']; 
 						echo $_SESSION['telefonoParticular'];
 					} else if($_SESSION['tipo'] == 'empresa') {
+						echo $_SESSION['idEmpresa'];
 						echo $_SESSION['tipo'];
 						echo $_SESSION['nombreEmpresa'];
 						echo $_SESSION['direccionEmpresa']; 

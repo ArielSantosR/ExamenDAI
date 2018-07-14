@@ -21,16 +21,18 @@ if(!empty($_POST['rutParticular']) && !empty($_POST['nombreParticular']) && !emp
 		$emailParticular=$_POST['emailParticular'];
 		$telefonoParticular=$_POST['telefonoParticular'];
 		$tipo = "particular";
+		$estado = "H";
 		$id=0;
 
 
-		$sql = "INSERT INTO usuario(id, email, contrasena, tipo) VALUES (:id,:email, :contrasena, :tipo)";
+		$sql = "INSERT INTO usuario(id, email, contrasena, tipo, estado) VALUES (:id,:email, :contrasena, :tipo, :estado)";
 
 		$stmt = $gbd->prepare($sql);
 		$stmt->bindParam(':id', $id);
 		$stmt->bindParam(':email', $emailParticular);
 		$stmt->bindParam(':contrasena', $passParticular);
 		$stmt->bindParam(':tipo', $tipo);
+		$stmt->bindParam(':estado', $estado);
 		
 		$stmt->execute();
 		$lastIdUsuario = $gbd->lastInsertId();

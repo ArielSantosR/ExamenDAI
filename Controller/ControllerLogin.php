@@ -33,7 +33,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['direccionParticular'] = $resultadoLogin['direccionParticular'];
 			$_SESSION['telefonoParticular'] = $resultadoLogin['telefonoParticular']; 
 		} else if($tipo=="empresa"){
-			$datos = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, contrasena, direccionEmpresa FROM empresa where idUsuario = :id');
+			$datos = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, direccionEmpresa FROM empresa where idUsuario = :id');
 			$datos->bindParam(':id', $id);
 			$datos->execute();
 

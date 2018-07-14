@@ -33,7 +33,11 @@ CREATE TABLE `analisismuestras` (
   `fechaRecepcion` date DEFAULT NULL,
   `temperaturaMuestra` decimal(3,1) DEFAULT NULL,
   `cantidadMuestra` int(10) DEFAULT NULL,
-  `tipo` varchar(20) NOT NULL
+  `tipo` varchar(20) NOT NULL,
+  `codigo_empresa` INT(11) NULL,
+  `codigo_particular` INT(11) NULL,
+  `rutEmpleado` varchar(10) NULL,
+  `estado` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -67,7 +71,8 @@ CREATE TABLE `empleado` (
   `idEmpleado` int(10) NOT NULL,
   `rol` int(2) NOT NULL,
   `nombreEmpleado` varchar(30) NOT NULL,
-  `idUsuario` INT(11) NOT NULL
+  `idUsuario` INT(11) NOT NULL,
+  `rutEmpleado` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -87,7 +92,7 @@ CREATE TABLE `empresa` (
 --
 -- Volcado de datos para la tabla `empresa`
 --
-
+ 
 INSERT INTO `empresa` (`idEmpresa`, `rutEmpresa`, `nombreEmpresa`, `direccionEmpresa`, `idUsuario`) VALUES
 (1, '194756828', 'Fabrica arieles', 'los arieles', 3);
 
@@ -196,13 +201,13 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEmpresa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `particular`
 --
 ALTER TABLE `particular`
-  MODIFY `idParticular` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idParticular` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -218,8 +223,8 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `analisismuestras`
 --
 ALTER TABLE `analisismuestras`
-  ADD CONSTRAINT `analisismuestras_ibfk_1` FOREIGN KEY (`idAnalisisMuestras`) REFERENCES `empresa` (`idEmpresa`) ON DELETE CASCADE,
-  ADD CONSTRAINT `analisismuestras_ibfk_2` FOREIGN KEY (`idAnalisisMuestras`) REFERENCES `particular` (`idParticular`);
+  ADD CONSTRAINT `analisismuestras_ibfk_1` FOREIGN KEY (`codigo_empresa`) REFERENCES `empresa` (`idEmpresa`),
+  ADD CONSTRAINT `analisismuestras_ibfk_2` FOREIGN KEY (`codigo_particular`) REFERENCES `particular` (`idParticular`);
 
 --
 -- Filtros para la tabla `contacto`

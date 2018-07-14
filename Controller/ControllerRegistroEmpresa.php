@@ -29,14 +29,16 @@ $msj = '';
 		$emailContacto=$_POST['emailContacto'];
 		$passEmpresa=$_POST['contrasenaEmpresa'];
 		$tipo = "empresa";
+		$estado = "H";
 
-		$sql = "INSERT INTO usuario(id, email, contrasena, tipo) VALUES (:id,:email, :contrasena, :tipo)";
+		$sql = "INSERT INTO usuario(id, email, contrasena, tipo, estado) VALUES (:id,:email, :contrasena, :tipo, :estado)";
 
 		$stmt = $gbd->prepare($sql);
 		$stmt->bindParam(':id', $id);
 		$stmt->bindParam(':email', $emailContacto);
 		$stmt->bindParam(':contrasena', $passEmpresa);
 		$stmt->bindParam(':tipo', $tipo);
+		$stmt->bindParam(':estado', $estado);
 		
 		$stmt->execute();
 		$lastIdUsuario = $gbd->lastInsertId();
@@ -62,8 +64,6 @@ $msj = '';
 		$stmt->bindParam(':nombreContacto', $nombreContacto);
 		$stmt->bindParam(':telefonoContacto', $telefonoContacto);
 		$stmt->bindParam(':idEmpresaC', $lastIdEmpresa);
-		
-		
 
 		if( $stmt->execute() ):
 			$msj = 'Cuenta creada correctamente';
