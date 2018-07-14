@@ -65,11 +65,9 @@ INSERT INTO `contacto` (`rutContacto`, `nombreContacto`, `emailContacto`, `telef
 
 CREATE TABLE `empleado` (
   `idEmpleado` int(10) NOT NULL,
-  `rutEmpleado` int(9) NOT NULL,
-  `contraseñaEmpleado` varchar(50) NOT NULL,
-  `emailEmpleado` varchar(100) NOT NULL,
   `rol` int(2) NOT NULL,
-  `nombreEmpleado` varchar(30) NOT NULL
+  `nombreEmpleado` varchar(30) NOT NULL,
+  `idUsuario` INT(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -107,13 +105,12 @@ CREATE TABLE `particular` (
   `telefonoParticular` int(10) NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Volcado de datos para la tabla `particular`
 --
 
-INSERT INTO `particular` (`idParticular`, `rutParticular`, `passParticular`, `nombreParticular`, `direccionParticular`, `emailParticular`, `telefonoParticular`, `idUsuario`) VALUES
-(1, 194756828, 0, 0, 0, 0, 978097364, 2);
+INSERT INTO `particular` (`idParticular`, `rutParticular`, `nombreParticular`, `direccionParticular`, `telefonoParticular`, `idUsuario`) VALUES
+(3, 19672371, 'Maxi Salvo', 'Los platanos 231 macul', 71072097, 4);
 
 -- --------------------------------------------------------
 
@@ -134,9 +131,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `email`, `contrasena`, `tipo`, `estado`) VALUES
-(1, 'Fran', '123', 'empresa', ''),
-(2, 'aaa@aa.com', '123', 'particular', ''),
-(3, 'ariel@ariel.com', '123', 'empresa', '');
+(3, 'fr.leonl1012@gmail.com', '123', 'particular', 'H'),
+(4, 'maxi@gmail.com', '123', 'particular', 'H'),
+(5, 'fr.leonl@gmail.com', '123', 'empresa', 'H'),
+(7, 'ariel@gmail.com', '123', 'empresa', 'H');
 
 --
 -- Índices para tablas volcadas
@@ -236,12 +234,6 @@ ALTER TABLE `empleado`
   ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`idEmpleado`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`idEmpresa`) REFERENCES `usuario` (`id`);
-
---
 -- Filtros para la tabla `particular`
 --
 ALTER TABLE `particular`
@@ -252,7 +244,9 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
---RESULTADO ANALISIS
+--
+-- RESULTADO ANALISIS
+--
 CREATE TABLE `examen`.`resultadoAnalisis` (
    `fechaRegistro` DATE NOT NULL ,
     `idResultadoAnalisis` INT(20) NOT NULL AUTO_INCREMENT ,
@@ -262,11 +256,3 @@ CREATE TABLE `examen`.`resultadoAnalisis` (
        PRIMARY KEY (`idResultadoAnalisis`)) ENGINE = InnoDB;
 
 ALTER TABLE resultadoanalisis ADD CONSTRAINT FK_AnalisisMuestras FOREIGN KEY (idAnalisisMuestras) REFERENCES analisismuestras (idAnalisisMuestras);
-
-ALTER TABLE `empleado` DROP `contraseñaEmpleado`;
-ALTER TABLE `empleado` DROP `emailEmpleado`;
-ALTER TABLE `empleado` DROP `rutEmpleado`;
-ALTER TABLE `empleado` ADD `idUsuario` INT(11) NOT NULL;
-
-ALTER TABLE `empleado`
-  ADD CONSTRAINT `FK_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
