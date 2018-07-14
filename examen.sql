@@ -99,9 +99,9 @@ INSERT INTO `empresa` (`idEmpresa`, `rutEmpresa`, `nombreEmpresa`, `direccionEmp
 
 CREATE TABLE `particular` (
   `idParticular` int(11) NOT NULL,
-  `rutParticular` int(10) NOT NULL,
-  `nombreParticular` int(100) NOT NULL,
-  `direccionParticular` int(200) NOT NULL,
+  `rutParticular` varchar(10) NOT NULL,
+  `nombreParticular` varchar(200) NOT NULL,
+  `direccionParticular` varchar(200) NOT NULL,
   `telefonoParticular` int(10) NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
