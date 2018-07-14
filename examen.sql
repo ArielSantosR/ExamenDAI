@@ -264,3 +264,11 @@ CREATE TABLE `examen`.`ResultadoAnalisis` (
        PRIMARY KEY (`idResultadoAnalisis`)) ENGINE = InnoDB;
 
 ALTER TABLE resultadoanalisis ADD CONSTRAINT FK_AnalisisMuestras FOREIGN KEY (idAnalisisMuestras) REFERENCES analisismuestras (idAnalisisMuestras);
+
+ALTER TABLE `empleado` DROP `contraseñaEmpleado`;
+ALTER TABLE `empleado` DROP `emailEmpleado`;
+ALTER TABLE `empleado` DROP `rutEmpleado`;
+ALTER TABLE `empleado` ADD `idUsuario` INT(11) NOT NULL;
+
+ALTER TABLE `empleado`
+  ADD CONSTRAINT `FK_idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);

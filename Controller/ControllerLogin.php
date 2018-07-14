@@ -42,7 +42,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['rutEmpresa'] = $resultadoLogin['rutEmpresa'];
 			$_SESSION['nombreEmpresa'] = $resultadoLogin['nombreEmpresa'];
 			$_SESSION['direccionEmpresa'] = $resultadoLogin['direccionEmpresa'];
-		}
+		} 
 		
 		$tipo= $results['tipo'];
 		$_SESSION['tipo'] = $tipo;
