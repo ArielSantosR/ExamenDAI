@@ -8,7 +8,7 @@ global $gbd;
 
 $msj = '';
 if(!empty($_POST['rutParticular']) && !empty($_POST['nombreParticular']) && !empty($_POST['passParticular']) && !empty($_POST['direccionParticular']) && !empty($_POST['emailParticular']) && !empty($_POST['telefonoParticular']) 
-	&& !empty($_POST["repetPassParticular"])):
+	&& !empty($_POST["repetPassParticular"])){
 
 	if($_POST["passParticular"] == $_POST["repetPassParticular"]){
 
@@ -48,27 +48,24 @@ if(!empty($_POST['rutParticular']) && !empty($_POST['nombreParticular']) && !emp
 		$stmt->bindParam(':idUsuario', $lastIdUsuario);
 		
 
-		if( $stmt->execute() ):
+		if( $stmt->execute() ){
 			$msj = 'Usuario creado correctamente';
 			header("Location: ../Vista/registro.php");
 
-		else:
+		}else{
 			$msj = 'No se pudo crear la cuenta, vuelva a intentar';
 			header("Location: ../Vista/registro.php");
-		endif;
+		}
 
 
 	}else{
 		$msj = 'Las contraseñas deben coincidir';
 		header("Location: ../Vista/registro.php");
 	}
-
-else:
+}else{
 	$msj= "Debe completar todos los campos";
 	header("Location: ../Vista/registro.php");
 	return $msj;
-
-endif;
-
+}
 
 ?>

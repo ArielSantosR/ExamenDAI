@@ -102,10 +102,8 @@ INSERT INTO `empresa` (`idEmpresa`, `rutEmpresa`, `nombreEmpresa`, `direccionEmp
 CREATE TABLE `particular` (
   `idParticular` int(11) NOT NULL,
   `rutParticular` int(10) NOT NULL,
-  `passParticular` int(100) NOT NULL,
   `nombreParticular` int(100) NOT NULL,
   `direccionParticular` int(200) NOT NULL,
-  `emailParticular` int(100) NOT NULL,
   `telefonoParticular` int(10) NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -255,7 +253,7 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 --RESULTADO ANALISIS
-CREATE TABLE `examen`.`ResultadoAnalisis` (
+CREATE TABLE `examen`.`resultadoAnalisis` (
    `fechaRegistro` DATE NOT NULL ,
     `idResultadoAnalisis` INT(20) NOT NULL AUTO_INCREMENT ,
      `PPM` INT(100) NOT NULL ,
