@@ -5,10 +5,7 @@ require '../Modelo/conexion.php';
 $db = new ConexionBD();
 global $gbd;
 
-
-
-
-if(!empty($_POST['email']) && !empty($_POST['contrasena'])):
+if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 
 	$email=$_POST['email'];
 	$contrasena=$_POST['contrasena'];
@@ -29,14 +26,22 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])):
 			$datos->bindParam(':id', $id);
 			$datos->execute();
 			$resultadoLogin = $datos->fetch(PDO::FETCH_ASSOC);
-
+		
 			$_SESSION['idParticular'] = $resultadoLogin['idParticular'];
 			$_SESSION['rutParticular'] = $resultadoLogin['rutParticular'];
 			$_SESSION['nombreParticular'] = $resultadoLogin['nombreParticular'];
 			$_SESSION['direccionParticular'] = $resultadoLogin['direccionParticular'];
 			$_SESSION['telefonoParticular'] = $resultadoLogin['telefonoParticular']; 
-			
-			
+		} else if($tipo=="empresa"){
+			$datos = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, contrasena, direccionEmpresa FROM empresa where idUsuario = :id');
+			$datos->bindParam(':id', $id);
+			$datos->execute();
+
+			$resultadoLogin = $datos->fetch(PDO::FETCH_ASSOC);
+			$_SESSION['idEmpresa'] = $resultadoLogin['idEmpresa'];	
+			$_SESSION['rutEmpresa'] = $resultadoLogin['rutEmpresa'];
+			$_SESSION['nombreEmpresa'] = $resultadoLogin['nombreEmpresa'];
+			$_SESSION['direccionEmpresa'] = $resultadoLogin['direccionEmpresa'];
 		}
 		
 		$tipo= $results['tipo'];
@@ -48,17 +53,10 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])):
 		$msj = 'Email o Contraseña invalidos';
 		header("Location: ../Vista/login.php");
 		return $msj;
-		
 	}
 
-else:
+}else{
 	$msj= "Debe completar todos los campos";
 	header("Location: ../Vista/login.php");
 	return $msj;
-endif;
-
-
-
-
-
-?>
+}

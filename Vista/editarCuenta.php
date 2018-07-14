@@ -12,11 +12,25 @@
 	  
 	</ul>
 	<div class="tab-content" id="myTabContent">
+	<!--Ver Datos -->
 	  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 	  	
+		<?php if($_SESSION['tipo'] == 'particular') { 
+
+						echo $_SESSION['tipo'];	
+						echo $_SESSION['nombreParticular'];
+						echo $_SESSION['direccionParticular']; 
+						echo $_SESSION['telefonoParticular'];
+					} else if($_SESSION['tipo'] == 'empresa') {
+						echo $_SESSION['tipo'];
+						echo $_SESSION['nombreEmpresa'];
+						echo $_SESSION['direccionEmpresa']; 
+					} 
+					?>
 	  
 
 	  </div>
+		<!--Editar -->
 	  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 	  	
 	  	

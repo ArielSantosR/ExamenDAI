@@ -1,5 +1,4 @@
 
-
 <?php include 'header.php';?>
 
 	<?php session_start();?>
@@ -34,17 +33,16 @@
 	        <!-- Form Name -->
 	        <center><h3 style="margin: 3% 0;"><strong>Registro Particular</strong></h3></center>
 	        
-<div class="row">
-	        <div class="col">
-	        <!-- Text input-->
-	        <div style="border-bottom: 1px #4caf50 solid;width: 55%;">
-		        <h4>Datos Personales</h4>
-		    </div>
+				<div class="row">
+	      	<div class="col">
+	        	<!-- Text input-->
+	        	<div style="border-bottom: 1px #4caf50 solid;width: 55%;">
+		        	<h4>Datos Personales</h4>
+		    		</div>
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-7">
-	          <input name="rutParticular" type="text" placeholder="194756828" class="form-control input-md" required="true">
-	            
+	          	<input name="rutParticular" type="text" placeholder="194756828" class="form-control input-md" required="true">
 	          </div>
 	        </div>
 	        
@@ -52,8 +50,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-7">
-	          <input name="nombreParticular" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
-	            
+	          	<input name="nombreParticular" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
 	          </div>
 	        </div>
 	       
@@ -62,8 +59,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="email">Dirección</label>  
 	          <div class="col-md-7">
-	          <input name="direccionParticular" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">
-	            
+	          	<input name="direccionParticular" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">	            
 	          </div>
 	        </div>
 	        
@@ -72,12 +68,12 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="add1">Telefono</label>  
 	          <div class="col-md-7">
-	          <input name="telefonoParticular" type="number" placeholder="978097364" class="form-control input-md" required="">
-	            
+	          	<input name="telefonoParticular" type="number" placeholder="978097364" class="form-control input-md" required="">
 	          </div>
 	        </div>
-</div>
-<div class="col">
+				</div>
+
+				<div class="col">
 	        <div style="border-bottom: 1px #006cb8 solid;width: 55%;">
 	        	<h4>Datos de Ingreso</h4>
 	        </div>
@@ -242,15 +238,7 @@
         	</div>
         </fieldset>
         </form>
-
 	  </div>
-	  
 	</div>
-
-
 </div>
-
-
-
-
 <?php include 'footer.php'; ?>

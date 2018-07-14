@@ -7,7 +7,7 @@ global $gbd;
 
 
 $msj = '';
-if(!empty($_POST['rutEmpresa']) && !empty($_POST['nombreEmpresa']) && !empty($_POST['direccionEmpresa']) 
+	if(!empty($_POST['rutEmpresa']) && !empty($_POST['nombreEmpresa']) && !empty($_POST['direccionEmpresa']) 
 	&& !empty($_POST['rutContacto']) && !empty($_POST['nombreContacto']) && !empty($_POST['telefonoContacto'])
 	 && !empty($_POST['emailContacto']) && !empty($_POST['contrasenaEmpresa'])):
 
@@ -40,8 +40,6 @@ if(!empty($_POST['rutEmpresa']) && !empty($_POST['nombreEmpresa']) && !empty($_P
 		
 		$stmt->execute();
 		$lastIdUsuario = $gbd->lastInsertId();
-
-
 
 		$sql = "INSERT INTO empresa(idEmpresa, rutEmpresa, nombreEmpresa, direccionEmpresa, idUsuario) VALUES (:idEmpresa, :rutEmpresa, :nombreEmpresa, :direccionEmpresa, :idUsuario)";
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2018 a las 06:28:53
--- Versión del servidor: 10.1.33-MariaDB
--- Versión de PHP: 7.2.6
+-- Tiempo de generación: 14-07-2018 a las 05:43:14
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,12 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `analisismuestras`
+--
+
+CREATE TABLE `analisismuestras` (
+  `idAnalisisMuestras` int(10) NOT NULL,
+  `fechaRecepcion` date DEFAULT NULL,
+  `temperaturaMuestra` decimal(3,1) DEFAULT NULL,
+  `cantidadMuestra` int(10) DEFAULT NULL,
+  `tipo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `contacto`
 --
 
 CREATE TABLE `contacto` (
   `rutContacto` varchar(10) NOT NULL,
   `nombreContacto` varchar(100) NOT NULL,
+  `emailContacto` varchar(100) NOT NULL,
   `telefonoContacto` int(10) NOT NULL,
   `idEmpresaC` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -39,8 +54,23 @@ CREATE TABLE `contacto` (
 -- Volcado de datos para la tabla `contacto`
 --
 
-INSERT INTO `contacto` (`rutContacto`, `nombreContacto`, `telefonoContacto`, `idEmpresaC`) VALUES
-('1976776-1', 'Francisca Leon', 878787878, 3);
+INSERT INTO `contacto` (`rutContacto`, `nombreContacto`, `emailContacto`, `telefonoContacto`, `idEmpresaC`) VALUES
+('11111111', 'aaa', '', 558896, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empleado`
+--
+
+CREATE TABLE `empleado` (
+  `idEmpleado` int(10) NOT NULL,
+  `rutEmpleado` int(9) NOT NULL,
+  `contraseñaEmpleado` varchar(50) NOT NULL,
+  `emailEmpleado` varchar(100) NOT NULL,
+  `rol` int(2) NOT NULL,
+  `nombreEmpleado` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -61,7 +91,7 @@ CREATE TABLE `empresa` (
 --
 
 INSERT INTO `empresa` (`idEmpresa`, `rutEmpresa`, `nombreEmpresa`, `direccionEmpresa`, `idUsuario`) VALUES
-(3, '19672371', 'Frabrica cp', 'Av Macul 233', 7);
+(1, '194756828', 'Fabrica arieles', 'los arieles', 3);
 
 -- --------------------------------------------------------
 
@@ -72,8 +102,10 @@ INSERT INTO `empresa` (`idEmpresa`, `rutEmpresa`, `nombreEmpresa`, `direccionEmp
 CREATE TABLE `particular` (
   `idParticular` int(11) NOT NULL,
   `rutParticular` int(10) NOT NULL,
-  `nombreParticular` varchar(100) NOT NULL,
-  `direccionParticular` varchar(200) NOT NULL,
+  `passParticular` int(100) NOT NULL,
+  `nombreParticular` int(100) NOT NULL,
+  `direccionParticular` int(200) NOT NULL,
+  `emailParticular` int(100) NOT NULL,
   `telefonoParticular` int(10) NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -82,8 +114,8 @@ CREATE TABLE `particular` (
 -- Volcado de datos para la tabla `particular`
 --
 
-INSERT INTO `particular` (`idParticular`, `rutParticular`, `nombreParticular`, `direccionParticular`, `telefonoParticular`, `idUsuario`) VALUES
-(3, 19672371, 'Maxi Salvo', 'Los platanos 231 macul', 71072097, 4);
+INSERT INTO `particular` (`idParticular`, `rutParticular`, `passParticular`, `nombreParticular`, `direccionParticular`, `emailParticular`, `telefonoParticular`, `idUsuario`) VALUES
+(1, 194756828, 0, 0, 0, 0, 978097364, 2);
 
 -- --------------------------------------------------------
 
@@ -95,28 +127,40 @@ CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `contrasena` varchar(200) NOT NULL,
-  `tipo` varchar(200) NOT NULL
+  `tipo` varchar(200) NOT NULL,
+  `estado` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `email`, `contrasena`, `tipo`) VALUES
-(3, 'fr.leonl1012@gmail.com', '123', 'particular'),
-(4, 'maxi@gmail.com', '123', 'particular'),
-(5, 'fr.leonl@gmail.com', '123', 'empresa'),
-(7, 'ariel@gmail.com', '123', 'empresa');
+INSERT INTO `usuario` (`id`, `email`, `contrasena`, `tipo`, `estado`) VALUES
+(1, 'Fran', '123', 'empresa', ''),
+(2, 'aaa@aa.com', '123', 'particular', ''),
+(3, 'ariel@ariel.com', '123', 'empresa', '');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `analisismuestras`
+--
+ALTER TABLE `analisismuestras`
+  ADD PRIMARY KEY (`idAnalisisMuestras`);
+
+--
 -- Indices de la tabla `contacto`
 --
 ALTER TABLE `contacto`
   ADD KEY `idEmpresaC` (`idEmpresaC`);
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`idEmpleado`);
 
 --
 -- Indices de la tabla `empresa`
@@ -141,32 +185,57 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `analisismuestras`
+--
+ALTER TABLE `analisismuestras`
+  MODIFY `idAnalisisMuestras` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  MODIFY `idEmpleado` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idEmpresa` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEmpresa` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `particular`
 --
 ALTER TABLE `particular`
-  MODIFY `idParticular` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idParticular` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
+-- Filtros para la tabla `analisismuestras`
+--
+ALTER TABLE `analisismuestras`
+  ADD CONSTRAINT `analisismuestras_ibfk_1` FOREIGN KEY (`idAnalisisMuestras`) REFERENCES `empresa` (`idEmpresa`) ON DELETE CASCADE,
+  ADD CONSTRAINT `analisismuestras_ibfk_2` FOREIGN KEY (`idAnalisisMuestras`) REFERENCES `particular` (`idParticular`);
+
+--
 -- Filtros para la tabla `contacto`
 --
 ALTER TABLE `contacto`
   ADD CONSTRAINT `contacto_ibfk_1` FOREIGN KEY (`idEmpresaC`) REFERENCES `empresa` (`idEmpresa`);
+
+--
+-- Filtros para la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`idEmpleado`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `empresa`
@@ -184,3 +253,14 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--RESULTADO ANALISIS
+CREATE TABLE `examen`.`ResultadoAnalisis` (
+   `fechaRegistro` DATE NOT NULL ,
+    `idResultadoAnalisis` INT(20) NOT NULL AUTO_INCREMENT ,
+     `PPM` INT(100) NOT NULL ,
+      `ESTADO` BOOLEAN NOT NULL ,
+      `idAnalisisMuestras` INT(10) NOT NULL,
+       PRIMARY KEY (`idResultadoAnalisis`)) ENGINE = InnoDB;
+
+ALTER TABLE resultadoanalisis ADD CONSTRAINT FK_AnalisisMuestras FOREIGN KEY (idAnalisisMuestras) REFERENCES analisismuestras (idAnalisisMuestras);

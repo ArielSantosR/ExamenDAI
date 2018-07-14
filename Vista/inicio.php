@@ -11,12 +11,17 @@
                     <h1>Cliente <?php echo $_SESSION['email'] ?></h1>
                     <p>Tu portal para tus muestras y análisis</p> 
 
-                    <?php echo $_SESSION['contrasena'] ?> 
-					<?php	echo $_SESSION['tipo'] ?>
-					<?php	echo $_SESSION['nombreParticular']  ?>
-					<?php	echo $_SESSION['direccionParticular'] ?>
-					<?php	echo $_SESSION['telefonoParticular'] ?>
-					
+					<?php if($_SESSION['tipo'] == 'particular') { 
+						echo $_SESSION['tipo'];	
+						echo $_SESSION['nombreParticular'];
+						echo $_SESSION['direccionParticular']; 
+						echo $_SESSION['telefonoParticular'];
+					} else if($_SESSION['tipo'] == 'empresa') {
+						echo $_SESSION['tipo'];
+						echo $_SESSION['nombreEmpresa'];
+						echo $_SESSION['direccionEmpresa']; 
+					} 
+					?>
                     
 </div>
 
