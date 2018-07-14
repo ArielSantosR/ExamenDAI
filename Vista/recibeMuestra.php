@@ -2,16 +2,20 @@
 
 <?php
     require '../Modelo/conexion.php';
+    require_once '../Controller/ControllerMostrarMuestras.php'    
     $db = new ConexionBD();
     global $gbd;
 
-    $query = "SELECT * from analisisMuestras where estado='T'";
+
+    $query = "SELECT * from analisisMuestras  inner join empresa on codigo_empresa = idEmpresa where estado='F'";
+    $query2 = "SELECT * from analisisMuestras inner join particular on codigo_particular = idParticular where estado='F'";
 ?>
+
 <div class="container">
   <h2>Muestras recibidas</h2>
   <p>Por favor haga el ingreso de estas muestras:</p>            
   <table class="table">
-    <thead>
+    <thead></thead>
       <tr>
         <th>Código de Cliente</th>
         <th>Número de telefono</th>
@@ -19,25 +23,17 @@
         <th>Ingresar Muestra</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Código de cliente</td>
-        <td>numero de telefono del cliente</td>
-        <td>tipo de analisis que quiere</td>
-        <td>boton que mande a un editar la muestra para agregar los datos que faltan</td>        
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td><?php echo $res['direccion'] ?></td>
-        <td><?php echo $res['nombre'] ?></td>
-      </tr>
-      <tr>
-      <td>Código de cliente</td>
-        <td>numero de telefono del cliente</td>
-        <td>tipo de analisis que quiere</td>
-        <td>boton que mande a un editar la muestra para agregar los datos que faltan</td>
-      </tr>
-    </tbody>
+    <tbody> 
+        <?php for ( ) { ?>
+          <tr>
+            <td><?php echo $res['codigo']?></td>
+            <td><?php echo $res['telefono']?></td>
+            <td><?php echo $res['tipo']?></td>
+            <td><input type="submit" name="IngresarMuestra" value="Ingresar Muestra" class="btn btn-primary"></td>        
+          </tr>
+        <?php } ?>
+          
+    </tbody>    
   </table>
 </div>
 
