@@ -2,7 +2,7 @@
 
 <?php
     require '../Modelo/conexion.php';
-    require_once '../Controller/ControllerMostrarMuestras.php'    
+    require_once '../Controller/ControllerMostrarMuestras.php';
     $db = new ConexionBD();
     global $gbd;
     
@@ -22,8 +22,8 @@
         <th>Ingresar Muestra</th>
       </tr>
     </thead>
-    <tbody>  
-        <?php for (que mierda pongo acaaaaaaaa ) { ?>
+    <tbody>    
+        <?php for ( ) { ?>
           <tr>
             <td><?php echo $res['codigo']?></td>
             <td><?php echo $res['tipo']?></td>

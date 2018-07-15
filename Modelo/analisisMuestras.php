@@ -21,10 +21,6 @@ class AnalisisMuestras{
         $this-> fechaRecepcion = $fechaRecepcion;
     }
 
-    function setFechaRecepcion(){
-        $this-> fechaRecepcion;
-    }
-
     function getIdAnalisisMuestras(){
         return $this-> idAnalisisMuestras;
     }

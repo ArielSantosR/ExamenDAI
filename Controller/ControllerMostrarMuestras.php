@@ -13,15 +13,16 @@ function obtenerMuestrasEmpresa(){
             
             foreach($resultado as $fila){
                 $analisis = new AnalisisMuestras();
-                $analisis->setIdAnalisisMuestras($fila['id']);
-                $analisis->setFechaRecepcion($fila['nombre']);
-                $analisis->setTemperaturaMuestra($fila['nombre']);
-                $analisis->setCantidadMuestra($fila['cantidad']);
+                $analisis->setIdAnalisisMuestras($fila['idAnalisisMuestras']);
+                $analisis->setFechaRecepcion($fila['fechaRecepcion']);
+                $analisis->setTemperaturaMuestra($fila['temperaturaMuestra']);
+                $analisis->setCantidadMuestra($fila['cantidadMuestra']);
                 $analisis->setTipo($fila['tipo']);
                 $analisis->setCodigoEmpresa($fila['codigo_empresa']);
-                array_push($profesiones, $profesion);
+                $analisis->setCodigoParticular($fila['codigo_particular']);
+                array_push($analisisMuestras, $analisis);
             }
-            return $profesiones;
+            return $analisisMuestras;
         }
         catch(PDOException $e)
 		{
@@ -31,4 +32,3 @@ function obtenerMuestrasEmpresa(){
         $sentencia = null;
         $db = null;
     }
-}
