@@ -23,7 +23,7 @@
       </tr>
     </thead>
     <tbody>  
-        <?php for ( ) { ?>
+        <?php for (que mierda pongo acaaaaaaaa ) { ?>
           <tr>
             <td><?php echo $res['codigo']?></td>
             <td><?php echo $res['tipo']?></td>

@@ -63,10 +63,10 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 		$_SESSION['tipo'] = $tipo;
 		$_SESSION['contrasena']= $contrasena;
 		$_SESSION['email']= $email;
-		header("Location: ../Vista/inicio.php");
+		header("Location: ../Vista/inicio.php?msj=exito");
 	} else {
 		$msj = 'Email o Contraseña invalidos';
-		header("Location: ../Vista/login.php");
+		header("Location: ../Vista/login.php?msj=error");
 		return $msj;
 	}
 

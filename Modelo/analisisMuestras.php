@@ -3,14 +3,14 @@ class AnalisisMuestras{
     private $idAnalisisMuestras, $fechaRecepcion, $temperaturaMuestra, $cantidadMuestra, $tipo, $codigo_empresa, 
     $codigo_particular, $rutEmpleado, $estado;
     
-    function _construct($idAnalisisMuestras, $fechaRecepcion){
+    function _construct($idAnalisisMuestras, $fechaRecepcion, $temperaturaMuestra, $cantidadMuestra, $tipo, $codigo_empresa, $codigo_particular){
         setIdAnalisisMuestras($idAnalisisMuestras);
         setFechaRecepcion($fechaRecepcion);
         setTemperaturaMuestra($temperaturaMuestra);
         setCantidadMuestra($cantidadMuestra);
         setTipo($tipo);
         setCodigoEmpresa($codigo_empresa);
-
+        setCodigoParticular($codigo_particular);
     }
 
     function setID($idAnalisisMuestras=0){
@@ -18,11 +18,11 @@ class AnalisisMuestras{
     }
 
     function setFechaRecepcion($fechaRecepcion){
-        $this -> $fechaRecepcion = $fechaRecepcion;
+        $this-> fechaRecepcion = $fechaRecepcion;
     }
 
-    function getFechaRecepcion(){
-        return $this-> fechaRecepcion;
+    function setFechaRecepcion(){
+        $this-> fechaRecepcion;
     }
 
     function getIdAnalisisMuestras(){
@@ -34,7 +34,7 @@ class AnalisisMuestras{
     }
 
     function setTemperaturaMuestra($temperaturaMuestra){
-        $this -> $temperaturaMuestra = $temperaturaMuestra;
+        $this-> temperaturaMuestra = $temperaturaMuestra;
     }
 
     function getTemperaturaMuestra(){
@@ -42,7 +42,7 @@ class AnalisisMuestras{
     }
 
     function setCantidadMuestra($cantidadMuestra){
-        $this -> $cantidadMuestra = $cantidadMuestra;
+        $this-> cantidadMuestra = $cantidadMuestra;
     }
 
     function getCantidadMuestra(){
@@ -50,7 +50,7 @@ class AnalisisMuestras{
     }
 
     function setTipo($tipo){
-        $this -> $tipo = $tipo;
+        $this-> tipo = $tipo;
     }
 
     function getTipo(){
@@ -58,7 +58,7 @@ class AnalisisMuestras{
     }
 
     function setCodigoEmpresa($codigo_empresa){
-        $this -> $codigo_empresa = $codigo_empresa;
+        $this-> $codigo_empresa = $codigo_empresa;
     }
 
     function getCodigoEmpresa(){
@@ -74,14 +74,14 @@ class AnalisisMuestras{
     }
 
     function setRutEmpleado($rutEmpleado){
-        $this -> $rutEmpleado = $rutEmpleado;
+        $this -> rutEmpleado = $rutEmpleado;
     }
 
     function getRutEmpleado(){
         return $this-> RutEmpleado;
     }
     function setEstado($estado){
-        $this -> $estado = $estado;
+        $this-> estado = $estado;
     }
 
     function getEstado(){
