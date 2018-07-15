@@ -31,37 +31,50 @@ switch ($_POST["accion"]) {
 
 
     case "nuevoUsuario":
-    	$id  = 0;
-    	$email = $_POST["emailEmpleado"];
-    	$contrasena = $_POST["passEmpleado"];
-    	$tipo  = "empleado";
-    	$estado = "H";
-        
-        $records = $gbd->prepare('INSERT INTO usuario(id, email, contrasena, tipo, estado) VALUES (:id, :email, :contrasena, :tipo, :estado');
-		$records->bindParam(':id', $id);
-		$records->bindParam(':email', $email);
-		$records->bindParam(':contrasena', $contrasena);
-		$records->bindParam(':tipo', $tipo);
-		$records->bindParam(':estado', $estado);
-		$records->execute();
+    
+    	if (!empty($_POST["emailEmpleado"]) && !empty($_POST["passEmpleado"]) && !empty($_POST["rol"])
+    	 && !empty($_POST["rol"]) && !empty($_POST["nombreEmpleado"]) && !empty($_POST["nombreEmpleado"]) 
+    	 && !empty($_POST["rutEmpleado"])) {
 
-		$lastIdUsuario = $gbd->lastInsertId();
 
-		$idEmpleado = 0;
-		$rol = $_POST["rol"];
-		$nombreEmpleado = $_POST["nombreEmpleado"];
-		$idUsuario = $lastIdUsuario;
-		$rutEmpleado = $_POST["rutEmpleado"];
+    		$id = 0;
+	    	$email = $_POST['emailEmpleado'];
+	    	$contrasena = $_POST['passEmpleado'];
+	    	$tipo  = "empleado";
+	    	$estado = "H";
+	        
+	        $record = $gbd->prepare('INSERT INTO usuario(id, email, contrasena, tipo, estado) VALUES (:id, :email, :contrasena, :tipo, :estado )');
+			$record->bindParam(':id', $id);
+			$record->bindParam(':email', $email);
+			$record->bindParam(':contrasena', $contrasena);
+			$record->bindParam(':tipo', $tipo);
+			$record->bindParam(':estado', $estado);
+			if ($record->execute()) {
+				
 
-		$datos = $gbd->prepare('INSERT INTO empleado(idEmpleado, rol, nombreEmpleado, idUsuario, rutEmpleado) VALUES (:idEmpleado, :rol, :nombreEmpleado, :idUsuario, :rutEmpleado)');
-		$datos->bindParam(':idEmpleado', $idEmpleado);
-		$datos->bindParam(':rol', $rol);
-		$datos->bindParam(':nombreEmpleado', $nombreEmpleado);
-		$datos->bindParam(':idUsuario', $idUsuario);
-		$datos->bindParam(':rutEmpleado', $rutEmpleado);
-		$datos->execute();
+				$lastIdUsuario = $gbd->lastInsertId();
 
-		header("Location: ../Vista/listaUsuarios.php");
+				$idEmpleado = 0;
+				$rol = $_POST["rol"];
+				$nombreEmpleado = $_POST["nombreEmpleado"];
+				$idUsuario = $lastIdUsuario;
+				$rutEmpleado = $_POST["rutEmpleado"];
+
+				$datos = $gbd->prepare('INSERT INTO empleado(idEmpleado, rol, nombreEmpleado, idUsuario, rutEmpleado) VALUES (:idEmpleado, :rol, :nombreEmpleado, :idUsuario, :rutEmpleado)');
+				$datos->bindParam(':idEmpleado', $idEmpleado);
+				$datos->bindParam(':rol', $rol);
+				$datos->bindParam(':nombreEmpleado', $nombreEmpleado);
+				$datos->bindParam(':idUsuario', $idUsuario);
+				$datos->bindParam(':rutEmpleado', $rutEmpleado);
+				$datos->execute();
+
+				header("Location: ../Vista/listaUsuarios.php");
+			}
+    	}else{
+    		echo "hay un dato vacio";
+    	}
+
+		
         break;    
 }
 
