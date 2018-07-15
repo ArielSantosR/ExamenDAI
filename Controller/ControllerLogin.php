@@ -66,9 +66,8 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['nombreEmpleado'] = $resultadoLoginEm['nombreEmpleado'];
 			$_SESSION['idUsuario'] = $resultadoLoginEm['idUsuario'];
 			$_SESSION['rutEmpleado'] = $resultadoLoginEm['rutEmpleado'];
-		} else {
-			echo "tipo invalido";
-		}
+		} 
+
 		$_SESSION['tipo'] = $tipo;
 		$_SESSION['contrasena']= $contrasena;
 		$_SESSION['email']= $email;
@@ -77,7 +76,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 	} else {
 		$msj = 'Email o Contraseña invalidos';
 		$_SESSION["msj"]= $msj;
-		header("Location: ../Vista/login.php?msj=error");
+		header("Location: ../Vista/login.php");
 		
 	}
 }else{

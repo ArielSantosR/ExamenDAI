@@ -1,6 +1,5 @@
-<?php include 'headerInicio.php';?>
-
 <?php session_start();?>
+<?php include 'headerInicio.php';?>
 
 <div class="container">
 	<h1>Mis Datos</h1>

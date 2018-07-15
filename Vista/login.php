@@ -6,11 +6,11 @@
 	<div class="container" style="text-align: center;">
 		<div class="block-login">
 
-			<?php if(!empty($msj)): ?>
-				<p style="color: red;"><?php echo $_SESSION["msj"] ?></p>
+			<?php if(!empty($_SESSION["msj"])): ?>
+				<p style="color: red;"><?php echo $_SESSION["msj"]; ?></p>
 			<?php endif; ?>
 
-			<h1 style="color:#007bff;">Iniciar Sesión</h1>
+			<h1 class="colorsito">Iniciar Sesión</h1>
 			
 
 			<form action="../Controller/ControllerLogin.php" method="POST">
