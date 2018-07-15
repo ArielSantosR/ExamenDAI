@@ -17,8 +17,12 @@ class AnalisisMuestras{
         $this-> idAnalisisMuestras = $idAnalisisMuestras;
     }
 
-    function setfechaRecepcion($idAnalisisMuestras){
-        $this -> idAnalisisMuestras = $idAnalisisMuestras;
+    function setFechaRecepcion($fechaRecepcion){
+        $this -> $fechaRecepcion = $fechaRecepcion;
+    }
+
+    function getFechaRecepcion(){
+        return $this-> fechaRecepcion;
     }
 
     function getIdAnalisisMuestras(){
@@ -29,5 +33,58 @@ class AnalisisMuestras{
         return $this-> nombre;
     }
 
-function setN    
+    function setTemperaturaMuestra($temperaturaMuestra){
+        $this -> $temperaturaMuestra = $temperaturaMuestra;
+    }
+
+    function getTemperaturaMuestra(){
+        return $this-> temperaturaMuestra;
+    }
+
+    function setCantidadMuestra($cantidadMuestra){
+        $this -> $cantidadMuestra = $cantidadMuestra;
+    }
+
+    function getCantidadMuestra(){
+        return $this-> cantidadMuestra;
+    }
+
+    function setTipo($tipo){
+        $this -> $tipo = $tipo;
+    }
+
+    function getTipo(){
+        return $this-> tipo;
+    }
+
+    function setCodigoEmpresa($codigo_empresa){
+        $this -> $codigo_empresa = $codigo_empresa;
+    }
+
+    function getCodigoEmpresa(){
+        return $this-> CodigoEmpresa;
+    }
+
+    function setCodigoParticular($codigo_particular){
+        $this -> $codigo_particular = $codigo_particular;
+    }
+
+    function getCodigoParticular(){
+        return $this-> CodigoParticular;
+    }
+
+    function setRutEmpleado($rutEmpleado){
+        $this -> $rutEmpleado = $rutEmpleado;
+    }
+
+    function getRutEmpleado(){
+        return $this-> RutEmpleado;
+    }
+    function setEstado($estado){
+        $this -> $estado = $estado;
+    }
+
+    function getEstado(){
+        return $this-> estado;
+    }    
 }

@@ -15,17 +15,17 @@
 	<!--Ver Datos -->
 	  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 	  	
-		<?php if($_SESSION['tipo'] == 'particular') {
+		<?php if($_SESSION['tipo'] == 'particular'): ?>
 						echo $_SESSION['tipo'];	echo "<br>";
 						echo $_SESSION['nombreParticular'];
 						echo $_SESSION['direccionParticular'];  
 						echo $_SESSION['telefonoParticular']; 
-					} else if($_SESSION['tipo'] == 'empresa') {
+				<?php	else if($_SESSION['tipo'] == 'empresa') :?>
 						echo $_SESSION['tipo']; 
 						echo $_SESSION['nombreEmpresa']; 
 						echo $_SESSION['direccionEmpresa']; 
-					} 
-					?>
+				 
+<?php endif;	?>
 	  
 
 	  </div>
