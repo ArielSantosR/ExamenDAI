@@ -23,7 +23,7 @@
 				      <a class="nav-item nav-link" href="cerrar.php">Cerrar Sesión</a>
 				      <a class="nav-item nav-link" href="listaUsuarios.php">Administrar Usuarios</a>
 				     	<a class="nav-item nav-link" href="#">Muestras</a>
-				     	<a class="nav-item nav-link" href="formularioCliente.php">Enviar Muestras</a>
+				     	<a class="nav-item nav-link" href="#">Enviar Muestras</a>
 				    </div>
 				  </div>
 				</nav>
