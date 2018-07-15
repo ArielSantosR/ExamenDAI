@@ -22,7 +22,7 @@
 				    <div class="navbar-nav">
 				      <a class="nav-item nav-link " href="inicio.php">Inicio</a>
 				      <a class="nav-item nav-link" href="cerrar.php">Cerrar Sesión</a>
-				      <a class="nav-item nav-link" href="editarCuenta.php">Editar Mis Datos</a>
+				      <a class="nav-item nav-link" href="editarCuenta.php">Mis Datos</a>
 				     	<a class="nav-item nav-link" href="#">Mis Muestras</a>
 				     	<a class="nav-item nav-link" href="formularioCliente.php">Enviar Muestras</a>
 				    </div>

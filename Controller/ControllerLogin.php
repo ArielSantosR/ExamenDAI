@@ -32,19 +32,34 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['nombreParticular'] = $resultadoLogin['nombreParticular'];
 			$_SESSION['direccionParticular'] = $resultadoLogin['direccionParticular'];
 			$_SESSION['telefonoParticular'] = $resultadoLogin['telefonoParticular']; 
-		} else if($tipo=="empresa"){
-			$datos = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, direccionEmpresa FROM empresa where idUsuario = :id');
-			$datos->bindParam(':id', $id);
-			$datos->execute();
 
-			$resultadoLogin = $datos->fetch(PDO::FETCH_ASSOC);
-			$_SESSION['idEmpresa'] = $resultadoLogin['idEmpresa'];	
-			$_SESSION['rutEmpresa'] = $resultadoLogin['rutEmpresa'];
-			$_SESSION['nombreEmpresa'] = $resultadoLogin['nombreEmpresa'];
-			$_SESSION['direccionEmpresa'] = $resultadoLogin['direccionEmpresa'];
+		} else {
+			if ($tipo == "empresa") {
+				$datosEmpresa = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, direccionEmpresa FROM empresa where idUsuario = :id');
+				$datosEmpresa->bindParam(':id', $id);
+				$datosEmpresa->execute();
+				$resultadoLoginE = $datosEmpresa->fetch(PDO::FETCH_ASSOC);
+
+				$_SESSION['idEmpresa'] = $resultadoLoginE['idEmpresa'];	
+				$_SESSION['rutEmpresa'] = $resultadoLoginE['rutEmpresa'];
+				$_SESSION['nombreEmpresa'] = $resultadoLoginE['nombreEmpresa'];
+				$_SESSION['direccionEmpresa'] = $resultadoLoginE['direccionEmpresa'];
+
+				$datosContacto = $gbd->prepare('SELECT rutContacto, nombreContacto, telefonoContacto, idEmpresaC FROM contacto where idEmpresaC = :id');
+				$idEmpresa= $resultadoLoginE['idEmpresa'];
+				$datosContacto->bindParam(':id', $idEmpresa);
+				$datosContacto->execute();
+				$resultadoLoginC = $datosContacto->fetch(PDO::FETCH_ASSOC);
+
+				$_SESSION['rutContacto'] = $resultadoLoginC['rutContacto'];	
+				$_SESSION['nombreContacto'] = $resultadoLoginC['nombreContacto'];
+				$_SESSION['telefonoContacto'] = $resultadoLoginC['telefonoContacto'];
+				$_SESSION['idEmpresaC'] = $resultadoLoginC['idEmpresaC'];
+
+			}
 		} 
 		
-		$tipo= $results['tipo'];
+		
 		$_SESSION['tipo'] = $tipo;
 		$_SESSION['contrasena']= $contrasena;
 		$_SESSION['email']= $email;

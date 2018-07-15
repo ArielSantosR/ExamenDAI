@@ -31,7 +31,7 @@
         	
         
 	        <!-- Form Name -->
-	        <center><h3 style="margin: 3% 0;"><strong>Registro Particular</strong></h3></center>
+	        <h3 style="margin: 3% 0;"><strong>Registro Particular</strong></h3>
 	        
 				<div class="row">
 	      	<div class="col">
@@ -126,7 +126,7 @@
         <fieldset>
         
 	        <!-- Form Name -->
-	        <center><h3 style="margin: 3% 0;"><strong>Registro Empresa</strong></h3></center>
+	        <h3 style="margin: 3% 0;"><strong>Registro Empresa</strong></h3>
 	        
 	        <div class="row">
 	        <!-- Text input-->
