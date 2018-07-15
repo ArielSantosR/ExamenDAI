@@ -11,7 +11,7 @@
 <body>
 
 
-              <?php session_start();?>
+              
               <nav class="navbar navbar-expand-lg navbar-light bg-light">
 				  <a class="navbar-brand" ><strong>ISP</strong>
 				  	<p style="color: #007bff;display: initial;"><?php echo $_SESSION['email'] ?></p></a>

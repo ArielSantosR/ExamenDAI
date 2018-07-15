@@ -4,11 +4,16 @@
 
 
 	<div class="container" style="text-align: center;">
+		
+		  <?php if(!empty($_SESSION["msj"])): ?>
+		  	<div class="alert alert-danger" style="width: 30%;margin-right: auto;margin-left: auto;" role="alert">
+				<p style="margin: 0;"><?php echo $_SESSION["msj"]; ?></p>
+			</div>
+			<?php endif; ?>
+		
 		<div class="block-login">
 
-			<?php if(!empty($_SESSION["msj"])): ?>
-				<p style="color: red;"><?php echo $_SESSION["msj"]; ?></p>
-			<?php endif; ?>
+			
 
 			<h1 class="colorsito">Iniciar Sesión</h1>
 			
