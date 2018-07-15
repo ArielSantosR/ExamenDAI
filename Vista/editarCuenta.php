@@ -39,14 +39,12 @@
 	</div>
 </div>
 
-<?php include 'footer.php';?>
 
 
-
-
-<?php
-	  		if ($_SESSION['tipo'] = "particular"):
-	  ?>
+	  	<?php
+	  		if ($_SESSION['tipo'] == "particular"):
+	  ?>			
+	  				<div style="background: #E2F1F0; padding: 10px;"><h4>Datos Personales</h4></div>
 	  				<div class="row">
 				  		<div class="col">
 				  			<p style="margin: 0; font-weight: bold;">Rut:</p>
@@ -67,6 +65,7 @@
 				  			<p><?php echo $_SESSION['telefonoParticular']?></p>
 				  		</div>
 				  	</div>
+				  	<div style="background: #E2F1F0; padding: 10px;"><h4>Datos de Ingreso</h4></div>
 				  	<div class="row">
 				  		<div class="col">
 				  			<p style="margin: 0; font-weight: bold;">Correo</p>
@@ -77,10 +76,73 @@
 				  			<p><?php echo $_SESSION['contrasena']?></p>
 				  		</div>
 				  	</div>
-	  <?php	
-	  		else:
-	?>
-	     CHAO
+
+	  <?php else: ?>
+	  				<div style="background: #E2F1F0; padding: 10px;"><h4>Empresa</h4></div>
+	    			<div class="row">
+	    				
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Rut:</p>
+				  			<p><?php echo $_SESSION['rutEmpresa'] ?></p>
+				  		</div>
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Nombre:</p>
+				  			<p> <?php echo $_SESSION['nombreEmpresa']?></p>
+				  		</div>
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Dirección:</p>
+				  			<p><?php echo $_SESSION['direccionEmpresa']?></p>
+				  		</div>
+				  	</div>
+				  	<div style="background: #E2F1F0; padding: 10px;"><h4>Contacto</h4></div>
+				  	<div class="row">
+				  		
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Rut:</p>
+				  			<p><?php echo $_SESSION['rutContacto'] ?></p>
+				  		</div>
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Nombre:</p>
+				  			<p> <?php echo $_SESSION['nombreContacto']?></p>
+				  		</div>
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Dirección:</p>
+				  			<p><?php echo $_SESSION['telefonoContacto']?></p>
+				  		</div>
+				  	</div>
+				  	<div style="background: #E2F1F0; padding: 10px;"><h4>Ingreso</h4></div>
+				  	<div class="row">
+
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Email:</p>
+				  			<p><?php echo $_SESSION['email']?></p>
+				  		</div>
+				  		<div class="col">
+				  			<p style="margin: 0; font-weight: bold;">Contraseña:</p>
+				  			<p><?php echo $_SESSION['contrasena']?></p>
+				  		</div>
+				  		<div class="col">
+				  			
+				  		</div>
+				  	</div>
 	<?php	
 	  		endif;
 	  ?>
+	  	
+		
+	  
+
+	  </div>
+		<!--Editar -->
+	  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+	  	
+	  </div>
+	  
+	</div>
+</div>
+
+<?php include 'footer.php';?>
+
+
+
+
