@@ -5,9 +5,14 @@
 
 	<div class="container" style="text-align: center;">
 		
-		  <?php if(!empty($_SESSION["msj"])): ?>
-		  	<div class="alert alert-danger" style="width: 30%;margin-right: auto;margin-left: auto;" role="alert">
-				<p style="margin: 0;"><?php echo $_SESSION["msj"]; ?></p>
+		 
+
+			<?php if(!empty($_SESSION["msj"])): ?>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  <?php echo $_SESSION["msj"]; ?>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
 			</div>
 			<?php endif; ?>
 		
