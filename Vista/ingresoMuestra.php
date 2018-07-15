@@ -1,5 +1,7 @@
 <?php include 'headerEmpleadoReceptor.php';?>
 
+<?php session_start();?>
+
 <?php
     require '../Modelo/conexion.php';
     $db = new ConexionBD();

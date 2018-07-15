@@ -1,8 +1,27 @@
-<?php include 'headerInicio.php';?>
 
 <?php
+	session_start();
+
 	if (empty($_SESSION['email'])) {
-		header("Location: ../Vista/login.php");
+		echo $_SESSION['email'];
+	}else{
+		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
+			 include 'headerInicio.php';
+		}else{
+			if($_SESSION['tipo']== "empleado"){
+				switch ($_SESSION['rol']) {
+				    case 3:
+				        include 'headerEmpleadoAdmin.php';
+				        break;
+				    case 2:
+				        include 'headerEmpleadoReceptor.php';
+				        break;
+				    case 1:
+				        include 'headerEmpleadoTecnico.php';
+				        break;
+				}
+			}
+		}
 	}
 ?>
 

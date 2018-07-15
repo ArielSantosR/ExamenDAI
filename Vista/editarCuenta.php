@@ -1,5 +1,7 @@
 <?php include 'headerInicio.php';?>
 
+<?php session_start();?>
+
 <div class="container">
 	<h1>Mis Datos</h1>
 	<ul class="nav nav-tabs" id="myTab" role="tablist">

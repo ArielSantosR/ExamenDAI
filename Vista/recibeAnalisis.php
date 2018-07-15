@@ -1,16 +1,12 @@
 <?php include 'headerEmpleadoReceptor.php';?>
+<?php session_start();?>
 
 <?php
-    $db = new ConexionBD();
-    $profesion = new Profesion();
-    $listaProfesion = $profesion->obtenerProfesion();
-
     require '../Modelo/conexion.php';
     require_once '../Controller/ControllerMostrarMuestras.php';
-    $muestra =     
-
-    $query = "SELECT * from analisisMuestras  inner join empresa on codigo_empresa = idEmpresa where estado='F'";  
-    $query2 = "SELECT * from analisisMuestras inner join particular on codigo_particular = idParticular where estado='F'";
+    $db = new ConexionBD();
+    $analisis= new AnalisisMuestras();
+    $listaAnalisis = $analisis->obtenerMuestrasEmpresa();
 ?>
 
 <div class="container">
@@ -25,7 +21,7 @@
       </tr>
     </thead>
     <tbody>  
-        <?php for ( que mierda pongooo ) { ?>
+        <?php foreach($listaAnalisis as $analisis) {?>
           <tr>
             <td><?php echo $res['codigo']?></td>
             <td><?php echo $res['tipo']?></td>

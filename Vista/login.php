@@ -7,7 +7,7 @@
 		<div class="block-login">
 
 			<?php if(!empty($msj)): ?>
-				<p style="color: red;"><?php echo $msj; ?></p>
+				<p style="color: red;"><?php echo $_SESSION["msj"] ?></p>
 			<?php endif; ?>
 
 			<h1 style="color:#007bff;">Iniciar Sesión</h1>

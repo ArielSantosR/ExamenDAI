@@ -33,45 +33,56 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['direccionParticular'] = $resultadoLogin['direccionParticular'];
 			$_SESSION['telefonoParticular'] = $resultadoLogin['telefonoParticular']; 
 
+		} else if ($tipo == "empresa"){
+			$datosEmpresa = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, direccionEmpresa FROM empresa where idUsuario = :id');
+			$datosEmpresa->bindParam(':id', $id);
+			$datosEmpresa->execute();
+			$resultadoLoginE = $datosEmpresa->fetch(PDO::FETCH_ASSOC);
+
+			$_SESSION['idEmpresa'] = $resultadoLoginE['idEmpresa'];	
+			$_SESSION['rutEmpresa'] = $resultadoLoginE['rutEmpresa'];
+			$_SESSION['nombreEmpresa'] = $resultadoLoginE['nombreEmpresa'];
+			$_SESSION['direccionEmpresa'] = $resultadoLoginE['direccionEmpresa'];
+				
+			$datosContacto = $gbd->prepare('SELECT rutContacto, nombreContacto, telefonoContacto, idEmpresaC FROM contacto where idEmpresaC = :id');
+			$idEmpresa= $resultadoLoginE['idEmpresa'];
+			$datosContacto->bindParam(':id', $idEmpresa);
+			$datosContacto->execute();
+			$resultadoLoginC = $datosContacto->fetch(PDO::FETCH_ASSOC);
+
+			$_SESSION['rutContacto'] = $resultadoLoginC['rutContacto'];	
+			$_SESSION['nombreContacto'] = $resultadoLoginC['nombreContacto'];
+			$_SESSION['telefonoContacto'] = $resultadoLoginC['telefonoContacto'];
+			$_SESSION['idEmpresaC'] = $resultadoLoginC['idEmpresaC'];
+
+		}else if($tipo== "empleado"){
+			$datosEmpleado = $gbd->prepare('SELECT idEmpleado, rol, nombreEmpleado, idUsuario, rutEmpleado FROM empleado where idUsuario = :id');
+			$datosEmpleado->bindParam(':id', $id);
+			$datosEmpleado->execute();
+			$resultadoLoginEm = $datosEmpleado->fetch(PDO::FETCH_ASSOC);
+
+			$_SESSION['idEmpleado'] = $resultadoLoginEm['idEmpleado'];	
+			$_SESSION['rol'] = $resultadoLoginEm['rol'];
+			$_SESSION['nombreEmpleado'] = $resultadoLoginEm['nombreEmpleado'];
+			$_SESSION['idUsuario'] = $resultadoLoginEm['idUsuario'];
+			$_SESSION['rutEmpleado'] = $resultadoLoginEm['rutEmpleado'];
 		} else {
-			if ($tipo == "empresa") {
-				$datosEmpresa = $gbd->prepare('SELECT idEmpresa, rutEmpresa, nombreEmpresa, direccionEmpresa FROM empresa where idUsuario = :id');
-				$datosEmpresa->bindParam(':id', $id);
-				$datosEmpresa->execute();
-				$resultadoLoginE = $datosEmpresa->fetch(PDO::FETCH_ASSOC);
-
-				$_SESSION['idEmpresa'] = $resultadoLoginE['idEmpresa'];	
-				$_SESSION['rutEmpresa'] = $resultadoLoginE['rutEmpresa'];
-				$_SESSION['nombreEmpresa'] = $resultadoLoginE['nombreEmpresa'];
-				$_SESSION['direccionEmpresa'] = $resultadoLoginE['direccionEmpresa'];
-
-				$datosContacto = $gbd->prepare('SELECT rutContacto, nombreContacto, telefonoContacto, idEmpresaC FROM contacto where idEmpresaC = :id');
-				$idEmpresa= $resultadoLoginE['idEmpresa'];
-				$datosContacto->bindParam(':id', $idEmpresa);
-				$datosContacto->execute();
-				$resultadoLoginC = $datosContacto->fetch(PDO::FETCH_ASSOC);
-
-				$_SESSION['rutContacto'] = $resultadoLoginC['rutContacto'];	
-				$_SESSION['nombreContacto'] = $resultadoLoginC['nombreContacto'];
-				$_SESSION['telefonoContacto'] = $resultadoLoginC['telefonoContacto'];
-				$_SESSION['idEmpresaC'] = $resultadoLoginC['idEmpresaC'];
-
-			}
-		} 
-		
-		
+			echo "tipo invalido";
+		}
 		$_SESSION['tipo'] = $tipo;
 		$_SESSION['contrasena']= $contrasena;
 		$_SESSION['email']= $email;
 		header("Location: ../Vista/inicio.php?msj=exito");
+		exit;
 	} else {
 		$msj = 'Email o Contraseña invalidos';
+		$_SESSION["msj"]= $msj;
 		header("Location: ../Vista/login.php?msj=error");
-		return $msj;
+		
 	}
-
 }else{
 	$msj= "Debe completar todos los campos";
+	$_SESSION["msj"]= $msj;
 	header("Location: ../Vista/login.php");
-	return $msj;
+	
 }

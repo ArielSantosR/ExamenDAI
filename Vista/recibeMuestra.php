@@ -1,11 +1,14 @@
 <?php include 'headerEmpleadoReceptor.php';?>
+<?php session_start();?>
 
 <?php
+  
+
     require '../Modelo/conexion.php';
     require_once '../Controller/ControllerMostrarMuestras.php';
     $db = new ConexionBD();
     global $gbd;
-    
+    $analisis = new AnalisisMuestras();
 
     $query = "SELECT * from analisisMuestras  inner join empresa on codigo_empresa = idEmpresa where estado='F'";  
     $query2 = "SELECT * from analisisMuestras inner join particular on codigo_particular = idParticular where estado='F'";

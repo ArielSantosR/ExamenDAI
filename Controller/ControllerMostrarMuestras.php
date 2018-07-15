@@ -1,7 +1,8 @@
 <?php
 require_once '../Modelo/conexion.php';
 
-function obtenerMuestrasEmpresa(){
+class AnalisisMuestras{
+    function obtenerMuestrasEmpresa(){
         try{
             global $gbd;
 
@@ -32,3 +33,4 @@ function obtenerMuestrasEmpresa(){
         $sentencia = null;
         $db = null;
     }
+}
