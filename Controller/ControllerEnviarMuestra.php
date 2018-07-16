@@ -9,8 +9,9 @@ if (!empty($_POST['muestra'])){
     $muestra= $_POST['muestra'];
     $estado = "F";
     if (isset($_POST['codigo_empresa'])){
-        $codigoEmpresa = $_POST['codigo_empresa'];
         $codigoParticular = null;
+        $codigoEmpresa = $_POST['codigo_empresa'];
+        
     }
     
     if (isset($_POST['codigo_particular'])){
@@ -29,10 +30,10 @@ if (!empty($_POST['muestra'])){
     $sentencia->execute();
     
     if($sentencia->rowcount() > 0) {
-        header('Location: ../Vista/formularioCliente.php?msj=exito');
+        header('Location: ../Vista/Cliente/formularioCliente.php?msj=exito');
 		exit();
     } else {
-        header('Location: ../Vista/formularioCliente.php?msj=error');
+        header('Location: ../Vista/Cliente/formularioCliente.php?msj=error');
 		exit();
     }
 }

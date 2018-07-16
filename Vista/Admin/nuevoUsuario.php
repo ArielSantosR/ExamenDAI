@@ -8,7 +8,7 @@
 			<p>Datos del Empleado</p>
 		</center>
 	</div>
-	<form action="../Controller/ControllerUsuario.php" method="POST">
+	<form action="../../Controller/ControllerUsuario.php" method="POST">
 		<div style="width: 50%; margin-left: auto;margin-right: auto;">
 			  <div class="form-group">
 			    <label class="colorsito" for="formGroupExampleInput">Rut</label>
@@ -22,8 +22,8 @@
 			    <label for="exampleFormControlSelect1">Rol</label>
 			    <select class="form-control" name="rol">
 			      <option >Seleccione</option>
-			      <option value="1">Tecnico de Laboratorio</option>
-			      <option value="2">Receptor de Muestras</option>
+			      <option value="1">Receptor de Muestras</option>
+						<option value="2">Tecnico de Laboratorio</option>
 			      <option value="3">Administrador</option>
 			      
 			    </select>
@@ -42,4 +42,4 @@
 	</form>
 	</div>
 
-<?php include 'footer.php'; ?>
+<?php include '../laboratorio/footer.php'; ?>

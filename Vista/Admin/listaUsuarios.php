@@ -1,7 +1,7 @@
 <?php session_start();?>
-<?php include 'headerEmpleadoAdmin.php';?>
+<?php include '../Admin/headerEmpleadoAdmin.php';?>
 <?php
-  require_once '../Modelo/conexion.php';
+  require_once '../../Modelo/conexion.php';
   $db = new ConexionBD(); 
 ?>
 
@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-4" style="margin-bottom: 3%;">
     
-       <a class="btn btn-primary" href="nuevoUsuario.php">Nuevo Usuario</a>
+       <a class="btn btn-primary" href="../Admin/nuevoUsuario.php">Nuevo Usuario</a>
    
   </div>
   <div class="col-md-8">
@@ -82,4 +82,4 @@
 </div>
 
 
-<?php include 'footer.php';?>
+<?php include '../Laboratorio/footer.php';?>

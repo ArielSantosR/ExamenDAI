@@ -10,7 +10,6 @@
 </head>
 <body>
 
-
               <nav class="navbar navbar-expand-lg navbar-light bg-light">
 				  <a class="navbar-brand" ><strong>ISP</strong>
 				  	<p style="color: #007bff;display: initial;"><?php echo $_SESSION['email'] ?></p></a>
@@ -19,11 +18,10 @@
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				    <div class="navbar-nav">
-				      <a class="nav-item nav-link " href="inicio.php">Inicio</a>
-				      <a class="nav-item nav-link" href="cerrar.php">Cerrar Sesión</a>
-				      <a class="nav-item nav-link" href="listaUsuarios.php">Administrar Usuarios</a>
-				     	<a class="nav-item nav-link" href="#">Muestras</a>
-				     	<a class="nav-item nav-link" href="#">Enviar Muestras</a>
+				      <a class="nav-item nav-link " href="../Laboratorio/inicio.php">Inicio</a>
+				      <a class="nav-item nav-link" href="../laboratorio/cerrar.php">Cerrar Sesión</a>
+				      <a class="nav-item nav-link" href="#">Editar Mis Datos</a>
+				     	<a class="nav-item nav-link" href="#">Lista Muestras Recibidas</a>
 				    </div>
 				  </div>
 				</nav>

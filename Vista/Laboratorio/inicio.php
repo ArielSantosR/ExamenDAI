@@ -6,18 +6,18 @@
 		echo $_SESSION['email'];
 	}else{
 		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
-			 include 'headerInicio.php';
+			 include '../Cliente/headerInicio.php';
 		}else{
 			if($_SESSION['tipo']== "empleado"){
 				switch ($_SESSION['rol']) {
 				    case 3:
-				        include 'headerEmpleadoAdmin.php';
+				        include '../Admin/headerEmpleadoAdmin.php';
 				        break;
 				    case 2:
-				        include 'headerEmpleadoReceptor.php';
+				        include '../EmpleadoReceptor/headerEmpleadoReceptor.php';
 				        break;
 				    case 1:
-				        include 'headerEmpleadoTecnico.php';
+				        include '../EmpleadoTecnico/headerEmpleadoTecnico.php';
 				        break;
 				}
 			}
@@ -31,4 +31,4 @@
 	<p>Tu portal para tus muestras y análisis</p>                     
 </div>
 
-<?php include 'footer.php';?>
+<?php include '../Laboratorio/footer.php';?>

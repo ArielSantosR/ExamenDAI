@@ -17,7 +17,7 @@ switch ($_POST["accion"]) {
 		$records->bindParam(':nuevoEstado', $estado);
 		$records->bindParam(':id', $id);
 		$records->execute();
-		header("Location: ../Vista/listaUsuarios.php");
+		header("Location: ../Vista/Admin/listaUsuarios.php");
         break;
     case "Habilitar":
     	$id= $_POST["idUsuario"];
@@ -26,7 +26,7 @@ switch ($_POST["accion"]) {
 		$records->bindParam(':nuevoEstado', $estado);
 		$records->bindParam(':id', $id);
 		$records->execute();
-		header("Location: ../Vista/listaUsuarios.php");
+		header("Location: ../Vista/Admin/listaUsuarios.php");
         break;
 
 
@@ -68,7 +68,7 @@ switch ($_POST["accion"]) {
 				$datos->bindParam(':rutEmpleado', $rutEmpleado);
 				$datos->execute();
 
-				header("Location: ../Vista/listaUsuarios.php");
+				header("Location: ../Vista/Admin/listaUsuarios.php");
 			}
     	}else{
     		echo "hay un dato vacio";

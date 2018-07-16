@@ -13,7 +13,7 @@ class AnalisisMuestras{
         setCodigoParticular($codigo_particular);
     }
 
-    function setID($idAnalisisMuestras=0){
+    function setIdAnalisisMuestras($idAnalisisMuestras=0){
         $this-> idAnalisisMuestras = $idAnalisisMuestras;
     }
 
@@ -58,7 +58,7 @@ class AnalisisMuestras{
     }
 
     function getCodigoEmpresa(){
-        return $this-> CodigoEmpresa;
+        return $this-> codigo_empresa;
     }
 
     function setCodigoParticular($codigo_particular){
@@ -66,7 +66,7 @@ class AnalisisMuestras{
     }
 
     function getCodigoParticular(){
-        return $this-> CodigoParticular;
+        return $this-> codigo_particular;
     }
 
     function setRutEmpleado($rutEmpleado){

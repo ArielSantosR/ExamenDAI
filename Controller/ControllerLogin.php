@@ -72,23 +72,23 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['tipo'] = $tipo;
 			$_SESSION['contrasena']= $contrasena;
 			$_SESSION['email']= $email;
-			header("Location: ../Vista/inicio.php?msj=exito");
+			header("Location: ../Vista/laboratorio/inicio.php?msj=exito");
 			exit;
 		} else {
 			$msj = 'Email o Contraseña invalidos';
 			$_SESSION["msj"]= $msj;
-			header("Location: ../Vista/login.php");
+			header("Location: ../Vista/Laboratorio/login.php");
 			
 		}
 	}else{
 		$msj= "Cuenta no existente";
 		$_SESSION["msj"]= $msj;
-		header("Location: ../Vista/login.php");
+		header("Location: ../Vista/Laboratorio/login.php");
 	}
 
 }else{
 	$msj= "Debe completar todos los campos";
 	$_SESSION["msj"]= $msj;
-	header("Location: ../Vista/login.php");
+	header("Location: ../Vista/Laboratorio/login.php");
 	
 }

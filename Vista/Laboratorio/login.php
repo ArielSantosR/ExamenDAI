@@ -1,6 +1,6 @@
 
 <?php session_start();?>
-<?php include 'header.php';?>
+<?php include '../Laboratorio/header.php';?>
 
 
 	<div class="container" style="text-align: center;">
@@ -23,7 +23,7 @@
 			<h1 class="colorsito">Iniciar Sesión</h1>
 			
 
-			<form action="../Controller/ControllerLogin.php" method="POST">
+			<form action="../../Controller/ControllerLogin.php" method="POST">
 				
 				<div class="cubo">
 					<div style="margin: 5%;">
@@ -41,9 +41,9 @@
 				</div>
 
 			</form>
-			<div><a href="registro.php">Registrarse</a></div>
+			<div><a href="../Laboratorio/registro.php">Registrarse</a></div>
 					
 		</div>
 	</div>
 
-<?php include 'footer.php'; ?>
+<?php include '../Laboratorio/footer.php'; ?>

@@ -1,16 +1,17 @@
 <?php
-require_once '../Modelo/conexion.php';
+require_once '../../Modelo/conexion.php';
+require '../../Modelo/analisismuestras.php';
 
-class AnalisisMuestras{
+class ControladorMuestras{
     function obtenerMuestrasEmpresa(){
         try{
             global $gbd;
 
-            $query = "SELECT * from analisisMuestras inner join empresa on codigo_empresa = idEmpresa where estado='F'";
+            $query = "SELECT * from analisisMuestras where estado='F'";
             $sentencia = $gbd->prepare($query);
             $sentencia->execute();
             $resultado = $sentencia->fetchAll();
-            $analisisMuestras = array();
+            $listaAnalisis = array();
             
             foreach($resultado as $fila){
                 $analisis = new AnalisisMuestras();
@@ -21,9 +22,9 @@ class AnalisisMuestras{
                 $analisis->setTipo($fila['tipo']);
                 $analisis->setCodigoEmpresa($fila['codigo_empresa']);
                 $analisis->setCodigoParticular($fila['codigo_particular']);
-                array_push($analisisMuestras, $analisis);
+                array_push($listaAnalisis, $analisis);
             }
-            return $analisisMuestras;
+            return $listaAnalisis;
         }
         catch(PDOException $e)
 		{

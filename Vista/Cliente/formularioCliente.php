@@ -4,8 +4,8 @@
 <div class="container">
 <h1>Ingresar Muestra para análisis</h1>
 
-<h5>Seleccione el tipo de análisis que desea hacer en la muestra</h5>
-<form action="../Controller/ControllerEnviarMuestra.php" method="POST">
+<h5>Seleccione el tipo de análisis que desea hacer en la muestra:</h5>
+<form action="../../Controller/ControllerEnviarMuestra.php" method="POST">
   
 <select name="muestra">
   <option disabled>Seleccione</option>
@@ -27,4 +27,4 @@
 </div>
 
 
-<?php include 'footer.php';?>
+<?php include '../laboratorio/footer.php';?>

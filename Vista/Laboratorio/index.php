@@ -1,4 +1,4 @@
-<?php include 'header.php';?>
+<?php include '../Laboratorio/header.php';?>
 
 
 <div class="jumbotron text-center">
@@ -9,21 +9,21 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <img src="img/imagen1.jpg" class="img-rounded" width="260" height="245"> 
+      <img src="../img/imagen1.jpg" class="img-rounded" width="260" height="245"> 
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris....</p>
+    </div>
+    <div class="col-sm-4">
+      <img src="../img/imagen2.jpg" class="img-rounded" width="260" height="245"> 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     </div>
     <div class="col-sm-4">
-      <img src="img/imagen2.jpg" class="img-rounded" width="260" height="245"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <img src="img/imagen3.jpg" class="img-rounded" width="260" height="245">         
+      <img src="../img/imagen3.jpg" class="img-rounded" width="260" height="245">         
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
       <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     </div>
   </div>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include '../Laboratorio/footer.php'; ?>

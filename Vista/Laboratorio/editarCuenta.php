@@ -1,5 +1,5 @@
 <?php session_start();?>
-<?php include 'headerInicio.php';?>
+<?php include '../Cliente/headerInicio.php';?>
 
 <div class="container">
 	<h1>Mis Datos</h1>
@@ -117,7 +117,7 @@
 	</div>
 </div>
 
-<?php include 'footer.php';?>
+<?php include '../Laboratorio/footer.php';?>
 
 
 

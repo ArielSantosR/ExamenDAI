@@ -67,20 +67,20 @@ $msj = '';
 
 		if( $stmt->execute() ):
 			$msj = 'Cuenta creada correctamente';
-			header("Location: ../Vista/registro.php");
+			header("Location: ../Vista/Laboratorio/registro.php");
 		else:
 			$msj = 'No se pudo crear la cuenta, vuelva a intentar';
-			header("Location: ../Vista/registro.php");
+			header("Location: ../Vista/Laboratorio/registro.php");
 		endif;
 
 	}else{
 		$msj = 'Las contraseñas deben coincidir';
-		header("Location: ../Vista/registro.php");
+		header("Location: ../Vista/Laboratorio/registro.php");
 	}
 
 else:
 	$msj= "Debe completar todos los campos";
-	header("Location: ../Vista/registro.php");
+	header("Location: ../Vista/Laboratorio/registro.php");
 	return $msj;
 
 endif;

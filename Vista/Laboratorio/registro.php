@@ -1,5 +1,5 @@
 
-<?php include 'header.php';?>
+<?php include '../Laboratorio/header.php';?>
 
 	<?php session_start();?>
 	<?php if(!empty($msj)): ?>
@@ -26,7 +26,7 @@
 	  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 	  	
 	  		
-		<form class="form-horizontal" action="../Controller/ControllerRegistroParticular.php" method="POST">
+		<form class="form-horizontal" action="../../Controller/ControllerRegistroParticular.php" method="POST">
         <fieldset>
         	
         
@@ -122,7 +122,7 @@
 	  </div>
 	  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 	  	
-	  	<form class="form-horizontal" action="../Controller/ControllerRegistroEmpresa.php" method="POST">
+	  	<form class="form-horizontal" action="../../Controller/ControllerRegistroEmpresa.php" method="POST">
         <fieldset>
         
 	        <!-- Form Name -->
@@ -241,4 +241,4 @@
 	  </div>
 	</div>
 </div>
-<?php include 'footer.php'; ?>
+<?php include '../Laboratorio/footer.php'; ?>
