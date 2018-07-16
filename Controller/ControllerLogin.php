@@ -29,7 +29,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 				$datos->execute();
 				$resultadoLogin = $datos->fetch(PDO::FETCH_ASSOC);
 			
-				$_SESSION['idParticular'] = $resultadoLogin['idParticular'];
+ 				$_SESSION['idParticular'] = $resultadoLogin['idParticular'];
 				$_SESSION['rutParticular'] = $resultadoLogin['rutParticular'];
 				$_SESSION['nombreParticular'] = $resultadoLogin['nombreParticular'];
 				$_SESSION['direccionParticular'] = $resultadoLogin['direccionParticular'];
@@ -69,7 +69,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 				$_SESSION['idUsuario'] = $resultadoLoginEm['idUsuario'];
 				$_SESSION['rutEmpleado'] = $resultadoLoginEm['rutEmpleado'];
 			} 
-
+			$_SESSION["idUsuario"]=$id;
 			$_SESSION['tipo'] = $tipo;
 			$_SESSION['contrasena']= $contrasena;
 			$_SESSION['email']= $email;

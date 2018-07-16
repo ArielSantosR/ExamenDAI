@@ -11,9 +11,6 @@ if(!empty($_POST['rutParticular']) && !empty($_POST['nombreParticular']) && !emp
 	&& !empty($_POST["repetPassParticular"])){
 
 	if($_POST["passParticular"] == $_POST["repetPassParticular"]){
-
-	
-	
 		$rutParticular=$_POST['rutParticular'];
 		$nombreParticular=$_POST['nombreParticular'];
 		$passParticular=$_POST['passParticular'];
@@ -23,7 +20,6 @@ if(!empty($_POST['rutParticular']) && !empty($_POST['nombreParticular']) && !emp
 		$tipo = "particular";
 		$estado = "H";
 		$id=0;
-
 
 		$sql = "INSERT INTO usuario(id, email, contrasena, tipo, estado) VALUES (:id,:email, :contrasena, :tipo, :estado)";
 

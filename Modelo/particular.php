@@ -60,5 +60,5 @@ class Particular{
         return $this-> idUsuario;
     }
 
-
+}
 ?>

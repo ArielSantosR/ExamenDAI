@@ -25,11 +25,13 @@
 ?>
 
 <?php
-    require '../Modelo/conexion.php';
+    require '../../Modelo/conexion.php';
+    require_once '../../Controller/ControllerMostrarMuestras.php';
     $db = new ConexionBD();
     global $gbd;
 
-    $query = "SELECT * from analisisMuestras";                
+    $analisis = new ControladorMuestras();
+    $listaAnalisis = $analisis->obtenerMuestrasId($_POST['id']);             
 ?>
 <div class="container">
   <h2>Ingrese los datos correspondientes de la muestra para enviar a análisis</h2>
@@ -41,9 +43,23 @@
       rut empleado y fecha recepcion sera automatico
    -->
    <div class="container">
-  <p>Por favor ingrese los datos correspondientes a la muestra:</p>            
+  <p>Por favor ingrese los datos correspondientes a la muestra:</p>
+
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="nombreCliente">Nombre Cliente</label>
+                <input type="text" class="form-control" readonly id="nombreCliente" value="asd">
+            </div>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+  </div>  
   <table class="table">
-    <thead></thead>
+    <thead>
       <tr>
         <th>Código de Cliente</th>
         <th>Tipo de Análisis Requerido</th>
@@ -51,12 +67,12 @@
         <th>Cantidad</th>
       </tr>
     </thead>
-    <tbody>      
+    <tbody> 
         <tr>
-            <td><?php echo $res['codigo']?></td>
-            <td><?php echo $res['tipo']?></td>
-            <td><input type="text" name="temperatura"></td>
-            <td><input type="text" name="cantidad"></td>
+        <td><?php echo $listaAnalisis->getCodigoEmpresa(); echo $listaAnalisis->getCodigoParticular();?></td>
+            <td><?php echo $listaAnalisis->getTipo();?></td>
+            <td><input type="number" name="temperatura" required></td>
+            <td><input type="number" name="cantidad" required></td>
         </tr>
     </tbody>    
   </table>

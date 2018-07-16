@@ -20,7 +20,7 @@
 				    <div class="navbar-nav">
 				      <a class="nav-item nav-link " href="../Laboratorio/inicio.php">Inicio</a>
 				      <a class="nav-item nav-link" href="../laboratorio/cerrar.php">Cerrar Sesión</a>
-				      <a class="nav-item nav-link" href="#">Editar Mis Datos</a>
+				      <a class="nav-item nav-link" href="../laboratorio/editarCuenta.php">Editar Mis Datos</a>
 				     	<a class="nav-item nav-link" href="../empleadoreceptor/recibemuestra.php">Lista Muestras Recibidas</a>
 				    </div>
 				  </div>

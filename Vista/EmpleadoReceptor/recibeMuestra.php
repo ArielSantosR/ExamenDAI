@@ -30,7 +30,7 @@
     $db = new ConexionBD();
     global $gbd;
     $analisis = new ControladorMuestras();
-    $listaAnalisis = $analisis->obtenerMuestrasEmpresa();
+    $listaAnalisis = $analisis->obtenerMuestrasCliente();
 ?>
 
 <div class="container">
@@ -49,10 +49,10 @@
           <tr>
             <td><?php echo $lista->getCodigoEmpresa(); echo $lista->getCodigoParticular(); ?></td>
             <td><?php echo $lista->getTipo(); ?></td>
-            <input type="hidden" value="<?php $lista->getId ?>">
-            <?php ?>
-
-            <td><input type="submit" name="IngresarMuestra" value="Ingresar Muestra" class="btn btn-primary"></td>        
+            <form method='POST' action='../EmpleadoReceptor/ingresoMuestra.php'>
+              <input type="hidden" name="id" value="<?php echo $lista->getIdAnalisisMuestras() ?>">
+              <td><input type="submit" name="IngresarMuestra" value="Ingresar Muestra" class="btn btn-primary"></td>
+            </form>
           </tr>
         <?php } ?>
     </tbody>    

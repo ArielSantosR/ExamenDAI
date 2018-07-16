@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	if (empty($_SESSION['email'] || $_SESSION['estado']=='D') || ($_SESSION['tipo']!='empresa' || $_SESSION['tipo']!='particular')) {
+	if (empty($_SESSION['email'] || $_SESSION['estado']=='D') || $_SESSION['tipo']=='empleado') {
 		header('location: ../Laboratorio/login.php');
 	}else{
 		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
