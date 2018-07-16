@@ -19,6 +19,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 
 	$id= $results['id'];
 	$tipo= $results['tipo'];
+	$estado= $results['estado'];
 
 	if ($results['estado']=="H") {
 		if(count($results) > 0 && $results['contrasena']==$contrasena ){
@@ -72,6 +73,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			$_SESSION['tipo'] = $tipo;
 			$_SESSION['contrasena']= $contrasena;
 			$_SESSION['email']= $email;
+			$_SESSION['estado']= $estado;
 			header("Location: ../Vista/laboratorio/inicio.php?msj=exito");
 			exit;
 		} else {
@@ -81,7 +83,7 @@ if(!empty($_POST['email']) && !empty($_POST['contrasena'])){
 			
 		}
 	}else{
-		$msj= "Cuenta no existente";
+		$msj= "Cuenta no existente o deshabilitada";
 		$_SESSION["msj"]= $msj;
 		header("Location: ../Vista/Laboratorio/login.php");
 	}

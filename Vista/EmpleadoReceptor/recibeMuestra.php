@@ -1,5 +1,28 @@
-<?php session_start();?>
-<?php include 'headerEmpleadoReceptor.php';?>
+<?php
+	session_start();
+
+	if (empty($_SESSION['email'] || $_SESSION['estado']=='D') || $_SESSION['tipo']!='empleado') {
+		header('location: ../Laboratorio/login.php');
+	}else{
+		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
+			 include '../Cliente/headerInicio.php';
+		}else{
+			if($_SESSION['tipo']== "empleado"){
+				switch ($_SESSION['rol']) {
+				    case 3:
+				        include '../Admin/headerEmpleadoAdmin.php';
+				        break;
+				    case 2:
+				        include '../EmpleadoReceptor/headerEmpleadoReceptor.php';
+				        break;
+				    case 1:
+				        include '../EmpleadoTecnico/headerEmpleadoTecnico.php';
+				        break;
+				}
+			}
+		}
+	}
+?>
 
 <?php
     require '../../Modelo/conexion.php';
@@ -8,8 +31,6 @@
     global $gbd;
     $analisis = new ControladorMuestras();
     $listaAnalisis = $analisis->obtenerMuestrasEmpresa();
-    //$query = "SELECT * from analisisMuestras  inner join empresa on codigo_empresa = idEmpresa where estado='F'";  
-    //$query2 = "SELECT * from analisisMuestras inner join particular on codigo_particular = idParticular where estado='F'";
 ?>
 
 <div class="container">
@@ -26,10 +47,11 @@
     <tbody></tbody>
         <?php foreach($listaAnalisis as $lista){ ?>
           <tr>
-            <?php echo print_r($lista) ?> 
-            
             <td><?php echo $lista->getCodigoEmpresa(); echo $lista->getCodigoParticular(); ?></td>
             <td><?php echo $lista->getTipo(); ?></td>
+            <input type="hidden" value="<?php $lista->getId ?>">
+            <?php ?>
+
             <td><input type="submit" name="IngresarMuestra" value="Ingresar Muestra" class="btn btn-primary"></td>        
           </tr>
         <?php } ?>

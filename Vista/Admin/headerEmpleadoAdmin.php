@@ -22,7 +22,7 @@
 				      <a class="nav-item nav-link " href="../Laboratorio/inicio.php">Inicio</a>
 				      <a class="nav-item nav-link" href="../laboratorio/cerrar.php">Cerrar Sesión</a>
 				      <a class="nav-item nav-link" href="../Admin/listaUsuarios.php">Administrar Usuarios</a>
-				     	<a class="nav-item nav-link" href="#">Muestras</a>
+				     	<a class="nav-item nav-link" href="../empleadoReceptor/recibeMuestra.php">Muestras</a>
 				     	<a class="nav-item nav-link" href="#">Enviar Muestras</a>
 				    </div>
 				  </div>

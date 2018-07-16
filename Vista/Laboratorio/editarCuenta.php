@@ -1,5 +1,30 @@
-<?php session_start();?>
-<?php include '../Cliente/headerInicio.php';?>
+
+<?php
+	session_start();
+
+	if (empty($_SESSION['email'] || $_SESSION['estado']=='D')) {
+		header('location: ../Laboratorio/login.php');
+	}else{
+		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
+			 include '../Cliente/headerInicio.php';
+		}else{
+			if($_SESSION['tipo']== "empleado"){
+				switch ($_SESSION['rol']) {
+				    case 3:
+				        include '../Admin/headerEmpleadoAdmin.php';
+				        break;
+				    case 2:
+				        include '../EmpleadoReceptor/headerEmpleadoReceptor.php';
+				        break;
+				    case 1:
+				        include '../EmpleadoTecnico/headerEmpleadoTecnico.php';
+				        break;
+				}
+			}
+		}
+	}
+?>
+
 
 <div class="container">
 	<h1>Mis Datos</h1>
@@ -24,6 +49,7 @@
 	  				<div class="row">
 				  		<div class="col">
 				  			<p style="margin: 0; font-weight: bold;">Rut:</p>
+							  
 				  			<p><?php echo $_SESSION['rutParticular'] ?></p>
 				  		</div>
 				  		<div class="col">

@@ -54,7 +54,7 @@ class AnalisisMuestras{
     }
 
     function setCodigoEmpresa($codigo_empresa){
-        $this-> $codigo_empresa = $codigo_empresa;
+        $this-> codigo_empresa = $codigo_empresa;
     }
 
     function getCodigoEmpresa(){
@@ -62,7 +62,7 @@ class AnalisisMuestras{
     }
 
     function setCodigoParticular($codigo_particular){
-        $this -> $codigo_particular = $codigo_particular;
+        $this -> codigo_particular = $codigo_particular;
     }
 
     function getCodigoParticular(){

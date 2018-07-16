@@ -1,9 +1,8 @@
-
 <?php
 	session_start();
 
-	if (empty($_SESSION['email'])) {
-		echo $_SESSION['email'];
+	if (empty($_SESSION['email'] || $_SESSION['estado']=='D')) {
+		header('location: ../Laboratorio/login.php');
 	}else{
 		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
 			 include '../Cliente/headerInicio.php';
@@ -27,7 +26,7 @@
 
 
 <div class="jumbotron text-center">
-    <h1>Cliente <?php echo $_SESSION['email'] ?></h1>
+    <h1><?php echo $_SESSION['tipo']?> <?php echo $_SESSION['email'] ?></h1>
 	<p>Tu portal para tus muestras y análisis</p>                     
 </div>
 

@@ -1,6 +1,28 @@
-<?php include 'headerEmpleadoReceptor.php';?>
+<?php
+	session_start();
 
-<?php session_start();?>
+	if (empty($_SESSION['email'] || $_SESSION['estado']=='D') || $_SESSION['tipo']!='empleado') {
+		header('location: ../Laboratorio/login.php');
+	}else{
+		if($_SESSION['tipo']== "empresa" || $_SESSION['tipo']== "particular"){
+			 include '../Cliente/headerInicio.php';
+		}else{
+			if($_SESSION['tipo']== "empleado"){
+				switch ($_SESSION['rol']) {
+				    case 3:
+				        include '../Admin/headerEmpleadoAdmin.php';
+				        break;
+				    case 2:
+				        include '../EmpleadoReceptor/headerEmpleadoReceptor.php';
+				        break;
+				    case 1:
+				        include '../EmpleadoTecnico/headerEmpleadoTecnico.php';
+				        break;
+				}
+			}
+		}
+	}
+?>
 
 <?php
     require '../Modelo/conexion.php';
@@ -46,4 +68,4 @@
 </div>
 
 
-<?php include 'footer.php';?>
+<?php include '../Laboratorio/footer.php';?>
