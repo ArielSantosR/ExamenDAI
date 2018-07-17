@@ -11,7 +11,6 @@ if (!empty($_POST['muestra'])){
     if (isset($_POST['codigo_empresa'])){
         $codigoParticular = null;
         $codigoEmpresa = $_POST['codigo_empresa'];
-        
     }
     
     if (isset($_POST['codigo_particular'])){

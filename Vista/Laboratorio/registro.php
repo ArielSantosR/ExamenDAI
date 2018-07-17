@@ -42,7 +42,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-7">
-	          	<input name="rutParticular" type="text" placeholder="194756828" class="form-control input-md" required="true">
+	          	<input name="rutParticular" type="text" oninput="checkRut(this)" placeholder="194756828" class="form-control input-md" required="true">
 	          </div>
 	        </div>
 	        
@@ -138,7 +138,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-9">
-	          <input name="rutEmpresa" type="text" placeholder="194756828" class="form-control input-md" required="true">
+	          <input name="rutEmpresa" type="text" placeholder="194756828" oninput="checkRut(this)" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -172,7 +172,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="fn">Rut</label>  
 	          <div class="col-md-10">
-	          <input  name="rutContacto" type="text" placeholder="194756828" class="form-control input-md" required="true">
+	          <input  name="rutContacto" type="text" oninput="checkRut(this)" placeholder="194756828" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -241,4 +241,6 @@
 	  </div>
 	</div>
 </div>
+
+<script src="../js/validacion.js"></script> 
 <?php include '../Laboratorio/footer.php'; ?>

@@ -45,8 +45,8 @@
 			    <label for="exampleFormControlSelect1">Rol</label>
 			    <select class="form-control" name="rol">
 			      <option >Seleccione</option>
-			      <option value="1">Receptor de Muestras</option>
-						<option value="2">Tecnico de Laboratorio</option>
+			      <option value="2">Receptor de Muestras</option>
+						<option value="1">Tecnico de Laboratorio</option>
 			      <option value="3">Administrador</option>
 			      
 			    </select>

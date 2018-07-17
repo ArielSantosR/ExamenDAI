@@ -50,6 +50,5 @@ class ResultadoAnalisis{
     function getIdAnalisisMuestras(){
         return $this-> idAnalisisMuestras;
     }
-
-
+    }
 ?>

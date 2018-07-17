@@ -1,0 +1,1 @@
+<?php header('location: laboratorio/main.php') ?>

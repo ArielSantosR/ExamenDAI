@@ -25,14 +25,14 @@
 ?>
 
 <?php
-    require '../Modelo/conexion.php';
-    require_once '../Controller/ControllerMostrarMuestras.php';
+    require '../../Modelo/conexion.php';
+    require_once '../../Controller/ControllerMostrarMuestras.php';
     $db = new ConexionBD();
-    $analisis= new AnalisisMuestras();
-    $listaAnalisis = $analisis->obtenerMuestrasEmpresa();
+    $analisis= new ControladorMuestras();
+    $listaAnalisis = $analisis->obtenerMuestrasRecibidas();
 ?>
 
-<div class="container">
+<div class="container"></div>
   <h2>Muestras para analizar</h2>
   <p>Por favor haga el análisis de estas muestras:</p>            
   <table class="table">
@@ -40,16 +40,19 @@
       <tr>
         <th>Código de Cliente</th>
         <th>Tipo de Análisis Requerido</th>
-        <th>PPM</th>
+        <th>Analizar</th>
       </tr>
     </thead>
     <tbody>  
-        <?php foreach($listaAnalisis as $analisis) {?>
-          <tr>
-            <td><?php echo $res['codigo']?></td>
-            <td><?php echo $res['tipo']?></td>
-            <td><input type="text" name="ppm"></td>
-            <td><input type="submit" name="AnalizarMuestra" value="Analizar Muestra" class="btn btn-primary"></td>        
+    <?php foreach($listaAnalisis as $lista){ ?>
+          <tr></tr>
+            <td><?php echo $lista->getCodigoEmpresa(); echo $lista->getCodigoParticular(); ?></td>
+            <td><?php echo $lista->getTipo(); ?></td>
+
+            <form method='POST' action='../EmpleadoTecnico/ingresoAnalisis.php'>
+              <input type="hidden" name="id" value="<?php echo $lista->getIdAnalisisMuestras() ?>">
+              <td><input type="submit" name="IngresarAnalisis" value="Ingresar Análisis" class="btn btn-primary"></td>
+            </form>
           </tr>
         <?php } ?>
           
@@ -58,4 +61,4 @@
 </div>
 
 
-<?php include 'footer.php';?>
+<?php include '../laboratorio/footer.php';?>

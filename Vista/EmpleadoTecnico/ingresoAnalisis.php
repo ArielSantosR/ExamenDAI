@@ -23,59 +23,51 @@
 		}
 	}
 ?>
-
 <?php
     require '../../Modelo/conexion.php';
     require_once '../../Controller/ControllerMostrarMuestras.php';
     $db = new ConexionBD();
     global $gbd;
 
-    $analisis = new ControladorMuestras();
+    $analisis = new ControladorMuestras(); 
     $listaAnalisis = $analisis->obtenerMuestrasId($_POST['id']);             
 ?>
+<!-- crear y cambiar funcion -->
 <div class="container">
-  <h2>Ingrese los datos correspondientes de la muestra para enviar a análisis</h2>
-
-  <!--
-      tabla con los datos de la muestra seleccionada
-      mostrar datos de la muestra: codigo de cliente quien mando la muestra, tipo de analisis que quiere para la muestra
-      ingresar datos que faltan en la muestra: fecha de recepcion, temperatura, cantidad y rut de empleado que recibio.
-      rut empleado y fecha recepcion sera automatico
-   -->
+  <h2>Ingrese los datos</h2>
    <div class="container">
-  <p>Por favor ingrese los datos correspondientes a la muestra:</p>
-
+  <p>Por favor ingrese los datos del análisis:</p>
   
-     
   <table class="table">
     <thead>
       <tr>
         <th>Código de Cliente</th>
         <th>Tipo de Análisis Requerido</th>
-        <th>Temperatura</th>
-        <th>Cantidad</th>
+        <th>PPM</th>
+        <th>Estado</th>
       </tr>
     </thead>
     <tbody> 
-        <form method='POST' action="../../Controller/ControllerEditarMuestra.php">
         <tr>
-
+        <form method='POST' action="../../Controller/ControllerIngresoAnalisis.php">
         <input type="hidden" name="id" value="<?php echo $listaAnalisis->getIdAnalisisMuestras(); ?>">
-        <input type="hidden" name="rutEmpleado" value="<?php echo $_SESSION['rutEmpleado'] ?>">
-
         <td><?php echo $listaAnalisis->getCodigoEmpresa(); echo $listaAnalisis->getCodigoParticular();?></td>
             <td><?php echo $listaAnalisis->getTipo();?></td>
-            <td><input type="number" name="temperatura" required></td>
-            <td><input type="number" name="cantidad" required></td>
+            <td><input type="number" name="PPM" required></td>
+            <td><select name="estado">
+
+					<option value="0">0</option>
+					<option value="1">1</option>
+					
+			</select></td>
         </tr>
-        
     </tbody>    
   </table>
 </div>
 
-   	<input type="submit" name="EnviarAnalisis" value="Enviar a Análisis" class="btn btn-primary">
-       </form>
+   	<input type="submit" name="PublicarAnalisis" value="Publicar Análisis" class="btn btn-primary">
 
+    </form>
 </div>
 
 

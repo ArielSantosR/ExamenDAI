@@ -17,7 +17,7 @@
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		    <div class="navbar-nav">
-		      <a class="nav-item nav-link " href="../Laboratorio/index.php">Inicio</a>
+		      <a class="nav-item nav-link " href="../Laboratorio/main.php">Inicio</a>
 		      <a class="nav-item nav-link" href="../Laboratorio/login.php">Ingresar</a>
 		      <a class="nav-item nav-link" href="../Laboratorio/registro.php">Registro</a>
 		     
