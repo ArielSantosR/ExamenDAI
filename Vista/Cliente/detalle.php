@@ -23,15 +23,18 @@
     }
 ?>
 <?php
-    require '../../Modelo/conexion.php';
-    require_once '../../Controller/ControllerResultado.php';
-    $db = new ConexionBD();
-		global $gbd;
-        $listaAnalisis = obtenerResultado();
+	require '../../Modelo/conexion.php';
+	$db = new ConexionBD();
+	global $gbd;
+	require_once '../../Controller/ControllerResultado.php';
+	
+	$analisis = new ControladorResultado();
+    $listaAnalisis = $analisis->obtenerResultado($_POST['id']);
+
 
 ?>
 <div class="container"> 
-<h1>Detalle</h1>
+<h1>Detalle Muestra N°<?php echo $_POST['id'] ?></h1>
   <table class="table">
     <thead></thead>
       <tr>
@@ -46,10 +49,17 @@
 			<?php foreach($listaAnalisis as $lista){ ?>
 			<tr>
             <?php $_SESSION['idAnalisisMuestras'] = $lista->getIdAnalisisMuestras(); ?>
-				<?php echo "sesion: ", $_SESSION['idAnalisisMuestras'] ?>
-                <td><?php echo $lista->getfechaRegistro(); ?></td>
+                <td><?php echo $lista->getFechaRegistro(); ?></td>
 				<td><?php echo $lista->getPPM(); ?></td>
-				<td><?php echo $lista->getEstado() ?></td>
+				<?php if ($lista->getEstado()==0){ ?>
+					<td>Ausencia</td>
+				<?php } ?>
+
+				<?php if ($lista->getEstado()==1){ ?>
+					<td>Presencia</td>
+				<?php } ?>
+
+				
 			</tr>
 			<?php } ?>
     </tbody>    

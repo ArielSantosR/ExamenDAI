@@ -50,7 +50,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-7">
-	          	<input name="nombreParticular" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
+	          	<input name="nombreParticular" type="text" pattern=".{3,}" title="3 o más carácteres" placeholder="Ariel Santos" class="form-control input-md" required="true">
 	          </div>
 	        </div>
 	       
@@ -59,7 +59,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="email">Dirección</label>  
 	          <div class="col-md-7">
-	          	<input name="direccionParticular" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">	            
+	          	<input name="direccionParticular" type="text" pattern=".{3,}" title="3 o más carácteres" placeholder="Los Platanos 234" class="form-control input-md" required="">	            
 	          </div>
 	        </div>
 	        
@@ -82,7 +82,7 @@
 	        	<div class="form-group">
 		          <label class="col-md-4 control-label" for="email">Email</label>  
 		          <div class="col-md-7">
-		          <input name="emailParticular" type="text" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
+		          <input name="emailParticular" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
 		            
 		          </div>
 		        </div>
@@ -91,7 +91,7 @@
 		        <div class="form-group">
 		          <label class="col-md-4 control-label" for="cmpny">Contraseña</label>  
 		          <div class="col-md-7">
-		          <input name="passParticular" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+		          <input name="passParticular" type="password" pattern=".{3,}" title="3 o más carácteres" placeholder="Contraseña" class="form-control input-md" required="">
 		            
 		          </div>
 		        </div>
@@ -100,7 +100,7 @@
 		        <div class="form-group">
 		          <label class="col-md-4 control-label" for="cmpny">Repetir Contraseña</label>  
 		          <div class="col-md-7">
-		          <input name="repetPassParticular" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+		          <input name="repetPassParticular" type="password" pattern=".{3,}" title="3 o más carácteres" placeholder="Contraseña" class="form-control input-md" required="">
 		            
 		          </div>
 		        </div>
@@ -147,7 +147,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-9">
-	          <input name="nombreEmpresa" type="text" placeholder="Fabrica Muestras A.S" class="form-control input-md" required="true">
+	          <input name="nombreEmpresa" type="text" pattern=".{3,}" title="3 o más carácteres" placeholder="Fabrica Muestras A.S" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -157,7 +157,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="email">Dirección</label>  
 	          <div class="col-md-9">
-	          <input  name="direccionEmpresa" type="text" placeholder="Los Platanos 234" class="form-control input-md" required="">
+	          <input  name="direccionEmpresa" type="text" pattern=".{3,}" title="3 o más carácteres" placeholder="Los Platanos 234" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
@@ -181,7 +181,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="ln">Nombre</label>  
 	          <div class="col-md-10">
-	          <input  name="nombreContacto" type="text" placeholder="Ariel Santos" class="form-control input-md" required="true">
+	          <input  name="nombreContacto" type="text" pattern=".{3,}" title="3 o más carácteres" placeholder="Ariel Santos" class="form-control input-md" required="true">
 	            
 	          </div>
 	        </div>
@@ -203,7 +203,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="email">Email</label>  
 	          <div class="col-md-10">
-	          <input  name="emailContacto" type="text" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
+	          <input  name="emailContacto" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="ar.santos@alumnos.duoc.cl" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
@@ -212,7 +212,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="cmpny">Contraseña</label>  
 	          <div class="col-md-10">
-	          <input  name="contrasenaEmpresa" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+	          <input  name="contrasenaEmpresa" type="password" pattern=".{3,}" title="3 o más carácteres" placeholder="Contraseña" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>
@@ -221,7 +221,7 @@
 	        <div class="form-group">
 	          <label class="col-md-4 control-label" for="cmpny">Repetir Contraseña</label>  
 	          <div class="col-md-10">
-	          <input  name="RcontrasenaEmpresa" type="password" placeholder="Contraseña" class="form-control input-md" required="">
+	          <input  name="RcontrasenaEmpresa" type="password" pattern=".{3,}" title="3 o más carácteres" placeholder="Contraseña" class="form-control input-md" required="">
 	            
 	          </div>
 	        </div>

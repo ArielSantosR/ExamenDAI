@@ -56,8 +56,8 @@
             <td><input type="number" name="PPM" required></td>
             <td><select name="estado">
 
-					<option value="0">0</option>
-					<option value="1">1</option>
+					<option value="0">Ausencia</option>
+					<option value="1">Presencia</option>
 					
 			</select></td>
         </tr>

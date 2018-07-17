@@ -33,10 +33,12 @@
 		if (!empty($_SESSION['idEmpresa'])){
 			$idE = $_SESSION['idEmpresa']; 
 			$listaAnalisise = $analisis->obtenerMuestrasEmpresa($idE);
+			$listaAnalisisel = $analisis->obtenerMuestrasEmpresaListas($idE);
 		}
 		if (!empty($_SESSION['idParticular'])){
 			$idP = $_SESSION['idParticular'];
 			$listaAnalisisp = $analisis->obtenerMuestrasParticular($idP);
+			$listaAnalisispl = $analisis->obtenerMuestrasParticularListas($idP);
 		}
 	
 	
@@ -48,42 +50,88 @@
     <thead></thead>
       <tr>
 
-        <th>Tipo de Análisis Requerido</th>
+    <th>Tipo de Análisis Requerido</th>
 		<th>Estado</th>
+		<th>Cantidad</th>
+		<th>Temperatura</th>
+		<th>Fecha de Recepción</th>
 		<th>Detalles</th>
         
       </tr>
     </thead>
     <tbody></tbody>
 		<?php if (!empty($_SESSION['idEmpresa'])){ ?>
-		<form method='POST' action='../../Controller/ControllerResultado.php'>
+		
 			<?php foreach($listaAnalisise as $lista){ ?>
 			<tr>
-			<input type="hidden" name="id" value="<?php echo $lista->getIdAnalisisMuestras() ?>">
-
 				<td><?php echo $lista->getTipo(); ?></td>
 				<td><?php echo $lista->getEstado() ?></td>
+				<td><?php echo $lista->getCantidadMuestra() ?></td>
+				<td><?php echo $lista->getTemperaturaMuestra() ?></td>
+				<td><?php echo $lista->getFechaRecepcion() ?></td>
 				<?php ?>
-						<td>	<input type="submit" value="Detalle"></td>		
+							
 						</tr>
-
 			<?php } ?>
-			</form>
 		<?php } ?>	
-		<?php if (!empty($_SESSION['idParticular'])){ ?>
-			<form method='POST' action='../../Controller/ControllerResultado.php'>
-			<?php foreach($listaAnalisisp as $lista){ ?>
-			<tr>
-			<input type="hidden" name="id" value="<?php echo $lista->getIdAnalisisMuestras() ?>">
+		<?php if (!empty($_SESSION['idEmpresa'])){ ?>
+		
+		<?php foreach($listaAnalisisel as $lista){ ?>
+		<tr>
+		<form method='POST' action='detalle.php'>
+		<input type="hidden" name="id" value="<?php echo $lista->getIdAnalisisMuestras() ?>">
 
-				<td><?php echo $lista->getTipo(); ?></td>
-				<td><?php echo $lista->getEstado() ?></td>
-				<?php ?>
-				<td><input type="submit" value="Detalle">	</td>	
-			</tr>
-        	<?php } ?>
+			<td><?php echo $lista->getTipo(); ?></td>
+			<td><?php echo $lista->getEstado() ?></td>
+			<td><?php echo $lista->getCantidadMuestra() ?></td>
+			<td><?php echo $lista->getTemperaturaMuestra() ?></td>
+			<td><?php echo $lista->getFechaRecepcion() ?></td>
+			<?php ?>
+					<td>	<input type="submit" value="Detalle" class="btn btn-info"></td>		
+					</tr>
 					</form>
 		<?php } ?>
+	<?php } ?>	
+
+		
+		<?php if (!empty($_SESSION['idParticular'])){ ?>
+			
+			<?php foreach($listaAnalisisp as $lista){ ?>
+			<tr>
+			
+
+				<td><?php echo $lista->getTipo(); ?></td>
+				<td><?php echo $lista->getEstado() ?></td>
+				<td><?php echo $lista->getCantidadMuestra() ?></td>
+				<td><?php echo $lista->getTemperaturaMuestra() ?></td>
+				<td><?php echo $lista->getFechaRecepcion() ?></td>
+				<?php ?>
+				
+			</tr>
+			
+        	<?php } ?>
+					
+		<?php } ?>
+		<?php if (!empty($_SESSION['idParticular'])){ ?>
+			
+			<?php foreach($listaAnalisispl as $lista){ ?>
+			<tr>
+			<form method='POST' action='detalle.php'>
+			<input type="hidden" name="id" value="<?php echo $lista->getIdAnalisisMuestras() ?>">
+
+				<td><?php echo $lista->getTipo(); ?></td>
+				<td><?php echo $lista->getEstado() ?></td>
+				<td><?php echo $lista->getCantidadMuestra() ?></td>
+				<td><?php echo $lista->getTemperaturaMuestra() ?></td>
+				<td><?php echo $lista->getFechaRecepcion() ?></td>
+				<?php ?>
+				<td><input type="submit" value="Detalle" class="btn btn-info">	</td>	
+			</tr>
+			</form>
+        	<?php } ?>
+					
+		<?php } ?>
+
     </tbody>    
   </table>
 </div>

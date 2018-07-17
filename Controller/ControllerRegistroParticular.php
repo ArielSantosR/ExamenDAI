@@ -59,6 +59,7 @@ if(!empty($_POST['rutParticular']) && !empty($_POST['nombreParticular']) && !emp
 	}else{
 		$msj = 'Las contraseñas deben coincidir';
 		header("Location: ../Vista/Laboratorio/registro.php");
+		return $msj;
 	}
 }else{
 	$msj= "Debe completar todos los campos";

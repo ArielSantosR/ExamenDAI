@@ -72,7 +72,41 @@ class ControladorMuestras{
         try{
             global $gbd;
 
-            $query = "select * from analisismuestras inner join empresa on codigo_empresa = idEmpresa where idEmpresa = :id;";
+            $query = "select * from analisismuestras inner join empresa on codigo_empresa = idEmpresa where idEmpresa = :id && estado != 'A'";
+            $sentencia = $gbd->prepare($query);
+            $sentencia->bindParam(':id', $id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll();
+            $listaAnalisis = array();
+            
+            foreach($resultado as $fila){
+                $analisis = new AnalisisMuestras();
+                $analisis->setIdAnalisisMuestras($fila['idAnalisisMuestras']);
+                $analisis->setFechaRecepcion($fila['fechaRecepcion']);
+                $analisis->setTemperaturaMuestra($fila['temperaturaMuestra']);
+                $analisis->setCantidadMuestra($fila['cantidadMuestra']);
+                $analisis->setTipo($fila['tipo']);
+                $analisis->setCodigoEmpresa($fila['codigo_empresa']);
+                $analisis->setCodigoParticular($fila['codigo_particular']);
+                $analisis->setEstado($fila['estado']);
+                array_push($listaAnalisis, $analisis);
+            }
+            return $listaAnalisis;
+        }
+        catch(PDOException $e)
+		{
+			echo $e->getMessage();
+			return false;
+		} 
+        $sentencia = null;
+        $db = null;
+    }
+
+    function obtenerMuestrasEmpresaListas($id){
+        try{
+            global $gbd;
+
+            $query = "select * from analisismuestras inner join empresa on codigo_empresa = idEmpresa where idEmpresa = :id && estado = 'A'";
             $sentencia = $gbd->prepare($query);
             $sentencia->bindParam(':id', $id);
             $sentencia->execute();
@@ -106,7 +140,41 @@ class ControladorMuestras{
         try{
             global $gbd;
 
-            $query = "select * from analisismuestras inner join particular on codigo_particular = idParticular where idParticular = :id";
+            $query = "select * from analisismuestras inner join particular on codigo_particular = idParticular where idParticular = :id && estado != 'A'";
+            $sentencia = $gbd->prepare($query);
+            $sentencia->bindParam(':id', $id);
+            $sentencia->execute();
+            $resultado = $sentencia->fetchAll();
+            $listaAnalisis = array();
+            
+            foreach($resultado as $fila){
+                $analisis = new AnalisisMuestras();
+                $analisis->setIdAnalisisMuestras($fila['idAnalisisMuestras']);
+                $analisis->setFechaRecepcion($fila['fechaRecepcion']);
+                $analisis->setTemperaturaMuestra($fila['temperaturaMuestra']);
+                $analisis->setCantidadMuestra($fila['cantidadMuestra']);
+                $analisis->setTipo($fila['tipo']);
+                $analisis->setCodigoEmpresa($fila['codigo_empresa']);
+                $analisis->setCodigoParticular($fila['codigo_particular']);
+                $analisis->setEstado($fila['estado']);
+                array_push($listaAnalisis, $analisis);
+            }
+            return $listaAnalisis;
+        }
+        catch(PDOException $e)
+		{
+			echo $e->getMessage();
+			return false;
+		} 
+        $sentencia = null;
+        $db = null;
+    }
+
+    function obtenerMuestrasParticularListas($id){
+        try{
+            global $gbd;
+
+            $query = "select * from analisismuestras inner join particular on codigo_particular = idParticular where idParticular = :id && estado = 'A'";
             $sentencia = $gbd->prepare($query);
             $sentencia->bindParam(':id', $id);
             $sentencia->execute();

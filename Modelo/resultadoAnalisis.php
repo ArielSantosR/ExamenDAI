@@ -12,7 +12,7 @@ class ResultadoAnalisis{
     }
 
     function setFechaRegistro($fechaRegistro){
-        $this-> idParticular = $fechaRegistro;
+        $this-> fechaRegistro = $fechaRegistro;
     }
 
     function getFechaRegistro(){

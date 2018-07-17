@@ -93,11 +93,11 @@
 	        <form action="../../Controller/ControllerEditar.php" method="POST">
 	        	<div class="form-group">
 				    <label >Email</label>
-				    <input type="text" class="form-control" name="email" value="<?php echo $_SESSION['email'] ?>">
+				    <input type="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $_SESSION['email'] ?>">
 				  </div>
 				  <div class="form-group">
 				    <label >Contraseña</label>
-				    <input type="text" class="form-control" name="contrasena" value="<?php echo $_SESSION['contrasena'] ?>">
+				    <input type="text" class="form-control" name="contrasena" pattern=".{3,}" value="<?php echo $_SESSION['contrasena'] ?>">
 
 				  </div>
 				  
@@ -185,11 +185,11 @@
 	        <form action="../../Controller/ControllerEditar.php" method="POST">
 	        	<div class="form-group">
 				    <label >Email</label>
-				    <input type="text" class="form-control" name="email" value="<?php echo $_SESSION['email'] ?>">
+				    <input type="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $_SESSION['email'] ?>">
 				  </div>
 				  <div class="form-group">
 				    <label >Contraseña</label>
-				    <input type="text" class="form-control" name="contrasena" value="<?php echo $_SESSION['contrasena'] ?>">
+				    <input type="text" class="form-control" name="contrasena" pattern=".{3,}"value="<?php echo $_SESSION['contrasena'] ?>">
 
 				  </div>
 				  
